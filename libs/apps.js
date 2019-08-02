@@ -143,7 +143,7 @@ var DANI;
 
             if ( this.markerRootA.visible && this.markerRootB.visible )
             {
-                
+
                 // align clipping plane to scene.
                 this.renderer.clippingPlanes[0].setFromNormalAndCoplanarPoint(
                     new THREE.Vector3(0,1,0).applyQuaternion(this.sceneGroup.getWorldQuaternion()),
