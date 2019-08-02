@@ -63,7 +63,7 @@ var DANI;
             this.renderer.domElement.style.left = '0px'
             document.body.appendChild( this.renderer.domElement );
 
-            this.clock = new THREE.Clock();
+
             this.deltaTime = 0;
             this.totalTime = 0;
             this.arToolkitContext = new THREEx.ArToolkitContext({
@@ -134,7 +134,7 @@ var DANI;
             this.renderer.clippingPlanes = [clipPlane];
             this.on('draw', this.onUpdate)
             // Register action
-            //createjs.Ticker.addEventListener('tick', this._onRAF, false);
+            createjs.Ticker.addEventListener('tick', this._onRAF, false);
 
         },
         onUpdate:function(){
@@ -143,6 +143,7 @@ var DANI;
 
             if ( this.markerRootA.visible && this.markerRootB.visible )
             {
+                console.log("Both marker are found")
                 // align clipping plane to scene.
                 this.renderer.clippingPlanes[0].setFromNormalAndCoplanarPoint(
                     new THREE.Vector3(0,1,0).applyQuaternion(this.sceneGroup.getWorldQuaternion()),
@@ -195,7 +196,7 @@ var DANI;
         _onRAF: function (t) {
                 let r = t.delta / 1e2;
                 this.time += r;
-                this.deltaTime = clock.getDelta();
+                this.deltaTime = this.clock.getDelta();
                 this.totalTime += this.deltaTime;
                 this.trigger('draw', this.time, r);
                 this.renderer.render( this.scene, this.camera );
