@@ -27,12 +27,13 @@
             let markerB = document.querySelector("a-marker#confederate").object3D;
             if(markerA.visible ===true && markerB.visible ===true){
                 this.found = true;
-                $("#notification").text("Found something");
+
                 let direction = this.direction;
                 direction.copy(this.target.position).sub(this.source.position);
                 this.source.position.x +=direction.x*this.speed;
                 this.source.position.y +=direction.y*this.speed;
                 this.source.position.z +=direction.z*this.speed;
+                $("#notification").text(`x: ${this.source.position.x} ${this.source.position.y} ${this.source.position.z}`);
             }else{
                 this.found = false;
             }
