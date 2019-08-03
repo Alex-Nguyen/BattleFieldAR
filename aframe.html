@@ -12,6 +12,7 @@
     AFRAME.registerComponent('handlemarker', {
         init: function () {
             $("#notification").text("Not find something")
+            this.boxA = document.querySelector("boxA").object3D;
             this.found=false;
             this.duration =0;
         },
@@ -25,7 +26,7 @@
                 this.found = false;
             }
             if(this.found){
-                markerA.position.x +=0.2;
+                this.boxA.position.x +=0.2;
             }
         }
     });
