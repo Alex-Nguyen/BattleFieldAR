@@ -11,12 +11,18 @@
 <script>
     AFRAME.registerComponent('handlemarker', {
         init: function () {
-            $("#notification").text("Not find something")
+            $("#notification").text("Not find something");
+            this.boxA = document.querySelector("#boxA").object3D;
             this.boxB = document.querySelector("#boxB").object3D;
             this.found=false;
             this.duration =0;
+            this.directionVec3 = new THREE.Vector3();
+
         },
-        tick:function () {
+        tick:function (time, timeDelta) {
+            var directionVec3 = this.directionVec3;
+            var targetPosition = this.boxB.position;
+            var currentPosition =this.boxA.position;
             let markerA = document.querySelector("a-marker#union").object3D;
             let markerB = document.querySelector("a-marker#confederate").object3D;
             if(markerA.visible ===true && markerB.visible ===true){
@@ -26,7 +32,18 @@
                 this.found = false;
             }
             if(this.found){
-                this.boxB.position.x +=0.002;
+                directionVec3.copy(targetPosition).sub(currentPosition);
+                var distance = directionVec3.length();
+                if (distance < 1) { return; }
+                var factor = 5 / distance;
+                ['x', 'y', 'z'].forEach(function (axis) {
+                    directionVec3[axis] *= factor * (timeDelta / 1000);
+                });
+                this.boxA.setAttribute('position', {
+                    x: currentPosition.x + directionVec3.x,
+                    y: currentPosition.y + directionVec3.y,
+                    z: currentPosition.z + directionVec3.z
+                });
             }
         }
     });
