@@ -12,13 +12,20 @@
     AFRAME.registerComponent('handlemarker', {
         init: function () {
             $("#notification").text("Not find something")
-            console.log(this.el);  // Reference to the scene element.
+            this.found=false;
+            this.duration =0;
         },
         tick:function () {
             let markerA = document.querySelector("a-marker#union").object3D;
             let markerB = document.querySelector("a-marker#confederate").object3D;
             if(markerA.visible ===true && markerB.visible ===true){
+                this.found = true;
                 $("#notification").text("Found something")
+            }else{
+                this.found = false;
+            }
+            if(this.found){
+                markerA.position.x +=0.2;
             }
         }
     });
