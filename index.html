@@ -26,25 +26,13 @@
             if(markerA.visible ===true && markerB.visible ===true){
                 this.found = true;
                 $("#notification").text("Found something")
+                markerA.position.x+=0.2;
+                markerA.position.y+=0.2;
+                markerB.position.x+=0.2;
             }else{
                 this.found = false;
             }
-            if(this.found){
-                $("#notification").text("Update marker A")
-                let direction = this.direction;
-                var targetPosition = this.target.position;
-                var currentPosition =this.source.position;
-                direction.copy(targetPosition).sub(currentPosition);
-                var distance = direction.length();
-                if (distance < 1) { return; }
-                var factor = 1 / distance;
-                ['x', 'y', 'z'].forEach(function (axis) {
-                    direction[axis] *= factor * (timeDelta / 1000);
-                });
-                markerA.position.x += direction.x;
-                markerA.position.y += direction.y;
-                markerA.position.z += direction.z;
-            }
+
         }
     });
 </script>
