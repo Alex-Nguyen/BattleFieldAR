@@ -15,6 +15,7 @@
             this.source = document.querySelector("#boxA").object3D;
             this.target = document.querySelector("#boxB").object3D;
             this.found=false;
+            this.speed = 0.3;
             this.duration =0;
             this.direction = new THREE.Vector3();
 
@@ -22,13 +23,16 @@
         tick:function (time, timeDelta) {
 
             let markerA = document.querySelector("a-marker#union").object3D;
+            console.log(markerA)
             let markerB = document.querySelector("a-marker#confederate").object3D;
             if(markerA.visible ===true && markerB.visible ===true){
                 this.found = true;
-                $("#notification").text("Found something")
-                markerA.position.x+=0.2;
-                this.source.position.x +=0.5;
-                markerB.position.x+=0.2;
+                $("#notification").text("Found something");
+                let direction = this.direction;
+                direction.copy(this.target.position).sub(this.source.position);
+                this.source.position.x +=direction.x*this.speed;
+                this.source.position.y +=direction.y*this.speed;
+                this.source.position.z +=direction.z*this.speed;
             }else{
                 this.found = false;
             }
