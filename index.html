@@ -1,58 +1,43 @@
 <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="components/follow.js"></script>
+<script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
+<script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
 <style>
-    #notification{
+    #countdown{
         position: absolute;
         top:0;
-        left:10;
+        left:10px;
     }
 </style>
 <script>
-    AFRAME.registerComponent('handlemarker', {
-        init: function () {
-            $("#notification").text("Not find something");
-            this.source = document.querySelector("#boxA").object3D;
-            this.target = document.querySelector("#boxB").object3D;
-            this.found=false;
-            this.speed = 0.3;
-            this.duration =0;
-            this.direction = new THREE.Vector3();
 
-        },
-        tick:function (time, timeDelta) {
 
-            let markerA = document.querySelector("a-marker#union").object3D;
-            let markerB = document.querySelector("a-marker#confederate").object3D;
-            if(markerA.visible ===true && markerB.visible ===true){
-                this.found = true;
-
-                let direction = this.direction;
-                direction = this.target.position - this.source.position;
-                this.source.position.x +=direction.x*this.speed;
-                this.source.position.y +=direction.y*this.speed;
-                this.source.position.z +=direction.z*this.speed;
-                $("#notification").text(`x: ${this.source.position.x} ${this.source.position.y} ${this.source.position.z} direction: ${direction}`);
-            }else{
-                this.found = false;
-            }
-
+    var timeleft = 3;
+    var downloadTimer = setInterval(function(){
+        $("#countdown").text(timeleft);
+        timeleft -= 1;
+        if(timeleft <= 0){
+            let el  = document.querySelector('#source');
+            el.setAttribute('alongpath',{curve:'#track1', dur:5000});
+            clearInterval(downloadTimer);
         }
-    });
+    }, 1000);
 </script>
 <body style='margin : 0px; overflow: hidden;'>
-<div id="notification"></div>
+<div id="countdown"></div>
 <a-scene embedded arjs='sourceType: webcam;'>
+    <a-curve id="track1">
+        <a-curve-point position="8 0 -20"></a-curve-point>
+        <a-curve-point position="3 0 -20"></a-curve-point>
+        <a-curve-point position="-1 -1 -10"></a-curve-point>
+    </a-curve>
 
-    <!-- handle marker with your own pattern -->
-    <a-marker id="union" type='pattern' url='data/letterA.patt'>
-        <a-box id="boxA" position='0 0.5 0' material='color: red;'></a-box>
-    </a-marker>
-    <a-marker id="confederate" type='pattern' url='data/letterB.patt'>
-        <a-box id="boxB" position='0 0.5 0' material='color: blue;'></a-box>
-    </a-marker>
-    <a-entity handlemarker> </a-entity>
-    <!-- add a simple camera -->
+
+
+    <a-box id="source"></a-box>
+    <a-box id="target" position='0 0 -10' material='opacity: 1; color:red'></a-box>
     <a-entity camera></a-entity>
 </a-scene>
 </body>
