@@ -153,6 +153,7 @@ var DANI;
                 let p = this.parabolicPath( this.markerRootA.getWorldPosition(), this.markerRootB.getWorldPosition(), (this.totalTime) % 4 - 1 );
                 self.troop.position.copy( p );
                 self.troop.rotation.z += 0.1
+                $("#overlay").text(`PosA ${this.markerRootA.getWorldPosition()} and PosB ${this.markerRootB.getWorldPosition()}`)
             }
         },
         parabolaEvaluate:function(p0, p1, p2, t){

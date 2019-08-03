@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>Palmito Ranch Plan BattleField</title>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/107/three.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- include jsartookit -->
     <script src="libs/artoolkit.min.js"></script>
     <script src="libs/artoolkit.api.js"></script>
@@ -16,9 +17,16 @@
     <script src="libs/backbone-min.js"></script>
     <script src="libs/createjs.min.js"></script>
     <script src="libs/GLTFLoader.js"></script>
+    <style>
+        #overlay{
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+    </style>
 </head>
 <body style="overflow: hidden">
-
+<div id="overlay">Hello world</div>
 </body>
 <script src="libs/apps.js"></script>
 </html>
