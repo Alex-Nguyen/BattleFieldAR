@@ -35,7 +35,7 @@
                 directionVec3.copy(targetPosition).sub(currentPosition);
                 var distance = directionVec3.length();
                 if (distance < 1) { return; }
-                var factor = 5 / distance;
+                var factor = 15 / distance;
                 ['x', 'y', 'z'].forEach(function (axis) {
                     directionVec3[axis] *= factor * (timeDelta / 1000);
                 });
