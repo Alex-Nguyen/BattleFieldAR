@@ -12,17 +12,15 @@
     AFRAME.registerComponent('handlemarker', {
         init: function () {
             $("#notification").text("Not find something");
-            this.boxA = document.querySelector("#boxA").object3D;
-            this.boxB = document.querySelector("#boxB").object3D;
+            this.source = document.querySelector("#boxA").object3D;
+            this.target = document.querySelector("#boxB").object3D;
             this.found=false;
             this.duration =0;
-            this.directionVec3 = new THREE.Vector3();
+            this.direction = new THREE.Vector3();
 
         },
         tick:function (time, timeDelta) {
-            var directionVec3 = this.directionVec3;
-            var targetPosition = this.boxB.position;
-            var currentPosition =this.boxA.position;
+
             let markerA = document.querySelector("a-marker#union").object3D;
             let markerB = document.querySelector("a-marker#confederate").object3D;
             if(markerA.visible ===true && markerB.visible ===true){
@@ -32,18 +30,19 @@
                 this.found = false;
             }
             if(this.found){
-                directionVec3.copy(targetPosition).sub(currentPosition);
-                var distance = directionVec3.length();
+                let direction = this.direction;
+                var targetPosition = this.target.position;
+                var currentPosition =this.source.position;
+                direction.copy(targetPosition).sub(currentPosition);
+                var distance = direction.length();
                 if (distance < 1) { return; }
-                var factor = 15 / distance;
+                var factor = 1 / distance;
                 ['x', 'y', 'z'].forEach(function (axis) {
-                    directionVec3[axis] *= factor * (timeDelta / 1000);
+                    direction[axis] *= factor * (timeDelta / 1000);
                 });
-                this.boxA.setAttribute('position', {
-                    x: currentPosition.x + directionVec3.x,
-                    y: currentPosition.y + directionVec3.y,
-                    z: currentPosition.z + directionVec3.z
-                });
+                this.source.position.x += direction.x;
+                this.source.position.y += direction.y;
+                this.source.position.z += direction.z;
             }
         }
     });
