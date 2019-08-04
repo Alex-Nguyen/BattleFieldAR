@@ -6,6 +6,7 @@
 <script src="components/robobehavior.js"></script>
 <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
 <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+<script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
 <style>
     #countdown {
         position: absolute;
@@ -33,13 +34,19 @@
     <a-assets>
         <img id="unionFlag" src="data/unionFlags.jpg">
         <img id="confederate" src="data/confederate.jpg">
-        <a-asset-item id="man" src="data/RobotExpressive.glb"></a-asset-item>
+        <a-asset-item id="man" src="data/Walking.glb"></a-asset-item>
     </a-assets>
     <a-curve id="track1">
         <a-curve-point position="5.5 0.5 -15"></a-curve-point>
         <a-curve-point position="4.5 0.5 -18"></a-curve-point>
         <a-curve-point position="2.5 1.5 -20"></a-curve-point>
-        <a-curve-point position="0 0 -10"></a-curve-point>
+        <a-curve-point position="0 0 -7"></a-curve-point>
+    </a-curve>
+
+    <a-curve id="smove2">
+        <a-curve-point position="0 0 -7"></a-curve-point>
+        <a-curve-point position=".5 -0.5 -5"></a-curve-point>
+
     </a-curve>
 
     <a-curve id="track2">
@@ -48,20 +55,38 @@
         <a-curve-point position="-3 0 -10"></a-curve-point>
         <a-curve-point position="-4 0 -10"></a-curve-point>
     </a-curve>
+    <a-curve id="track3">
+        <a-curve-point position="-1 0 -10"></a-curve-point>
+        <a-curve-point position="-2 0.5 -10"></a-curve-point>
+        <a-curve-point position="-3 1 -10"></a-curve-point>
+        <a-curve-point position="-4 1.5 -10"></a-curve-point>
+    </a-curve>
 
-    <a-entity id="source" behavior gltf-model="#man" position="5.5 0.5 -15" rotation="0 -90 0" scale="0.2 0.2 0.2"
+    <a-curve id="track4">
+        <a-curve-point position="-1 0 -10"></a-curve-point>
+        <a-curve-point position="-2 -0.5 -10"></a-curve-point>
+        <a-curve-point position="-3 -1 -10"></a-curve-point>
+        <a-curve-point position="-4 -1.5 -10"></a-curve-point>
+    </a-curve>
+
+    <a-entity id="source" behavior gltf-model="#man" position="5.5 0.5 -15" rotation="0 -90 0" scale="0.6 0.6 0.6"
               animation-mixer="clip:Idle">
-        <a-text value="Union Troops" position="-2 4.7 1" color="red" scale="2 2 2"></a-text>
-        <a-plane src="#unionFlag" height=".8" position="0 6 0" scale="2 2 2" width="1.2"></a-plane>
+<!--        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>-->
+        <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
 
     </a-entity>
 
-    <a-entity id="target" gltf-model="#man" position="-1 0 -10" rotation="0 90 0" scale="0.2 0.2 0.2"
+    <a-entity id="target1" gltf-model="#man" position="-0.5 0 -7"  scale="0.6 0.6 0.6"
               animation-mixer="clip:Idle">
-        <a-text value="Confederate Troops" look-at="[camera]"  position="-12 4.0 1" color="blue" scale="2 2 2"></a-text>
-        <a-plane src="#confederate" height=".8" look-at="[camera]"  position="0 6 0" scale="2 2 2" width="1.2"></a-plane>
+<!--        <a-text value="Confederate Troops" look-at="[camera]"  position="0 1.5 0" color="blue" scale="2 2 2"></a-text>-->
+        <a-plane src="#confederate" height=".8" look-at="[camera]"  position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
     </a-entity>
-
+    <a-entity id="target2" gltf-model="#man" position="-0.6 -0.2 -7"  scale="0.6 0.6 0.6"
+              animation-mixer="clip:Idle">
+    </a-entity>
+    <a-entity id="target3" gltf-model="#man" position="-0.7 -0.5 -7"  scale="0.6 0.6 0.6"
+              animation-mixer="clip:Idle">
+    </a-entity>
     <a-entity camera></a-entity>
 </a-scene>
 </body>
