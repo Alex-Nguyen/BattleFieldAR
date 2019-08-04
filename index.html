@@ -7,22 +7,22 @@
 <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
 <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
 <style>
-    #countdown{
+    #countdown {
         position: absolute;
-        top:0;
-        left:10px;
+        top: 0;
+        left: 10px;
     }
 </style>
 <script>
 
 
     var timeleft = 3;
-    var downloadTimer = setInterval(function(){
+    var downloadTimer = setInterval(function () {
         $("#countdown").text(timeleft);
         timeleft -= 1;
-        if(timeleft <= 0){
-            let el  = document.querySelector('#source');
-            el.setAttribute('alongpath',{curve:'#track1', dur:5000, rotate:true});
+        if (timeleft <= 0) {
+            let el = document.querySelector('#source');
+            el.setAttribute('alongpath', {curve: '#track1', dur: 5000, rotate: true});
             clearInterval(downloadTimer);
         }
     }, 1000);
@@ -31,6 +31,8 @@
 <div id="countdown"></div>
 <a-scene embedded arjs='sourceType: webcam;'>
     <a-assets>
+        <img id="unionFlag" src="data/unionFlags.jpg">
+        <img id="confederate" src="data/confederate.jpg">
         <a-asset-item id="man" src="data/RobotExpressive.glb"></a-asset-item>
     </a-assets>
     <a-curve id="track1">
@@ -40,15 +42,25 @@
         <a-curve-point position="0 0 -10"></a-curve-point>
     </a-curve>
 
+    <a-curve id="track2">
+        <a-curve-point position="-1 0 -10"></a-curve-point>
+        <a-curve-point position="-2 0 -10"></a-curve-point>
+        <a-curve-point position="-3 0 -10"></a-curve-point>
+        <a-curve-point position="-4 0 -10"></a-curve-point>
+    </a-curve>
 
+    <a-entity id="source" behavior gltf-model="#man" position="5.5 0.5 -15" rotation="0 -90 0" scale="0.2 0.2 0.2"
+              animation-mixer="clip:Idle">
+        <a-text value="Union Troops" position="-2 4.7 1" color="red" scale="2 2 2"></a-text>
+        <a-plane src="#unionFlag" height=".8" position="0 6 0" scale="2 2 2" width="1.2"></a-plane>
 
-    <a-entity id="source" behavior gltf-model="#man" rotation="0 -90 0" scale="0.2 0.2 0.2" position="5.5 0.5 -15" animation-mixer="clip:Idle"></a-entity>
+    </a-entity>
 
-    <!--    <a-box id="target" position='0 0 -10' material='opacity: 1; color:red'></a-box>-->
-<!--    <a-box position='5.5 0.5 -15' material='opacity: 1; color:red'></a-box>-->
-<!--    <a-box position='4.5 0.5 -18' material='opacity: 1; color:blue'></a-box>-->
-<!--    <a-box position='2.5 1.5 -20' material='opacity: 1; color:green'></a-box>-->
-
+    <a-entity id="target" gltf-model="#man" position="-1 0 -10" rotation="0 90 0" scale="0.2 0.2 0.2"
+              animation-mixer="clip:Idle">
+        <a-text value="Confederate Troops" look-at="[camera]"  position="-12 4.0 1" color="blue" scale="2 2 2"></a-text>
+        <a-plane src="#confederate" height=".8" look-at="[camera]"  position="0 6 0" scale="2 2 2" width="1.2"></a-plane>
+    </a-entity>
 
     <a-entity camera></a-entity>
 </a-scene>
