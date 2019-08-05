@@ -6,6 +6,9 @@
 <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
 <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
 <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mayognaise/aframe-gif-shader/dist/aframe-gif-shader.min.js"></script>
+<script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script>
+
 <style>
     #countdown {
         position: absolute;
@@ -67,7 +70,12 @@
         <a-curve-point position="-3 -1 -10"></a-curve-point>
         <a-curve-point position="-4 -1.5 -10"></a-curve-point>
     </a-curve>
-
+    <a-entity id="fire1" visible="false" position="0 0 -15" rotation="0 0 42"
+              spe-particles__sparks="texture: images/square.png; color: yellow, red; particle-count: 10; max-age: 0.5; max-age-spread: 0.4; velocity: 0 5 0; velocity-spread: 0 3 0; wiggle: 1 0 1; wiggle-spread: 5 0 5; emitter-scale: 50; size-spread: .5; randomize-velocity: true"
+              spe-particles__smoke="texture: images/fog.png; velocity: .4 2 0; velocity-spread: 1.4 0 1.4; particle-count: 50; max-age: 4; size: 8,16; opacity: 0,1,0; color: #666,#222"
+              spe-particles__fire="texture: images/explosion_sheet.png; texture-frames: 5 5; velocity: .4 .1 0; acceleration: 0 2 0; acceleration-spread: 0 2 0; velocity-spread: .4 0 .4; particle-count: 15; max-age: 1; size: 4,8; size-spread: 2; opacity: 1,0; wiggle: 0 1 0; blending: additive"
+              position="0 0 -10">
+    </a-entity>
     <a-entity id="source"  gltf-model="#man" position="5.5 0.5 -15" rotation="0 -90 0" scale="0.6 0.6 0.6"
               animation-mixer="clip:Idle">
 <!--        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>-->

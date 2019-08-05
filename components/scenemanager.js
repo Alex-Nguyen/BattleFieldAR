@@ -35,6 +35,7 @@ AFRAME.registerComponent('manager', {
     },
     stage2Handler:function(){
         console.log("Start stage 2")
+        let self = this;
         let timer = 3;
         let action = setInterval(function () {
             timer--;
@@ -64,7 +65,11 @@ AFRAME.registerComponent('manager', {
 
     },
     stage3Handler:function(){
-        console.log("Start stage 3")
+        let el = document.querySelector('#source');
+        el.setAttribute('alongpath', {curve: '#smove2', dur: 3, rotate: true});
+        el.setAttribute('animation-mixer',{clip:'mixamo.com'})
+        let fire = document.querySelector('#fire1');
+        fire.setAttribute('visible','true')
     },
     stage4Handler:function(){
         console.log("Start stage 4")
