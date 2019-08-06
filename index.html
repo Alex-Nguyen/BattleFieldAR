@@ -100,26 +100,26 @@
               spe-particles__fire="texture: images/explosion_sheet.png; texture-frames: 5 5; velocity: .4 .1 0; acceleration: 0 2 0; acceleration-spread: 0 2 0; velocity-spread: .4 0 .4; particle-count: 15; max-age: 1; size: 4,8; size-spread: 2; opacity: 1,0; wiggle: 0 1 0; blending: additive"
               position="0 0 -10">
     </a-entity>
-<!--    <a-entity id="source" gltf-model="#man" position="5.5 0.5 -15" rotation="0 -90 0" scale="0.6 0.6 0.6"-->
-<!--              animation-mixer="clip:Idle">-->
-<!--        &lt;!&ndash;        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>&ndash;&gt;-->
-<!--        <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>-->
+    <a-entity id="source" gltf-model="#man" position="5.5 0.5 -15" rotation="0 -90 0" scale="0.6 0.6 0.6"
+              animation-mixer="clip:Idle">
+        <!--        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>-->
+        <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
 
-<!--    </a-entity>-->
+    </a-entity>
 
-<!--    <a-entity id="target1" gltf-model="#man" position="-0.5 0 -7" scale="0.6 0.6 0.6"-->
-<!--              animation-mixer="clip:Idle">-->
-<!--        &lt;!&ndash;        <a-text value="Confederate Troops" look-at="[camera]"  position="0 1.5 0" color="blue" scale="2 2 2"></a-text>&ndash;&gt;-->
-<!--        <a-plane src="#confederate" height=".8" look-at="[camera]" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>-->
-<!--    </a-entity>-->
-<!--    <a-entity id="target2" gltf-model="#man" position="-0.6 -0.2 -7" scale="0.6 0.6 0.6"-->
-<!--              animation-mixer="clip:Idle">-->
-<!--    </a-entity>-->
-<!--    <a-entity id="target3" gltf-model="#man" position="-0.7 -0.5 -7" scale="0.6 0.6 0.6"-->
-<!--              animation-mixer="clip:Idle">-->
-<!--    </a-entity>-->
-<!--    -->
-<!--    -->
+    <a-entity id="target1" gltf-model="#man" position="-0.5 0 -7" scale="0.6 0.6 0.6"
+              animation-mixer="clip:Idle">
+        <!--        <a-text value="Confederate Troops" look-at="[camera]"  position="0 1.5 0" color="blue" scale="2 2 2"></a-text>-->
+        <a-plane src="#confederate" height=".8" look-at="[camera]" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
+    </a-entity>
+    <a-entity id="target2" gltf-model="#man" position="-0.6 -0.2 -7" scale="0.6 0.6 0.6"
+              animation-mixer="clip:Idle">
+    </a-entity>
+    <a-entity id="target3" gltf-model="#man" position="-0.7 -0.5 -7" scale="0.6 0.6 0.6"
+              animation-mixer="clip:Idle">
+    </a-entity>
+
+
     <a-marker type='pattern' url='data/pattern-P1.patt'>
         <a-entity id="test"  gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"
                   animation-mixer="clip:Idle">
@@ -127,34 +127,34 @@
 
         </a-entity>
     </a-marker>
-    <a-marker type='pattern' url='data/pattern-pat2.patt'>
-        <a-entity id="test2"  gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"
-                  animation-mixer="clip:Idle">
-            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
+<!--    <a-marker type='pattern' url='data/pattern-pat2.patt'>-->
+<!--        <a-entity id="test2"  gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"-->
+<!--                  animation-mixer="clip:Idle">-->
+<!--            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>-->
 
-        </a-entity>
-    </a-marker>
-    <a-marker type='pattern' url='data/pattern-pat3.patt'>
-        <a-entity id="test3"  gltf-model="#man" position="0 0 0"
-                  animation-mixer="clip:Idle">
-            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
+<!--        </a-entity>-->
+<!--    </a-marker>-->
+<!--    <a-marker type='pattern' url='data/pattern-pat3.patt'>-->
+<!--        <a-entity id="test3"  gltf-model="#man" position="0 0 0"-->
+<!--                  animation-mixer="clip:Idle">-->
+<!--            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>-->
 
-        </a-entity>
-    </a-marker>
-    <a-marker type='pattern' url='data/pattern-pat4.patt'>
-        <a-entity id="test4"  gltf-model="#man" position="0 0 0"
-                  animation-mixer="clip:Idle">
-            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
+<!--        </a-entity>-->
+<!--    </a-marker>-->
+<!--    <a-marker type='pattern' url='data/pattern-pat4.patt'>-->
+<!--        <a-entity id="test4"  gltf-model="#man" position="0 0 0"-->
+<!--                  animation-mixer="clip:Idle">-->
+<!--            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>-->
 
-        </a-entity>
-    </a-marker>
-    <a-marker type='pattern' url='data/pattern-pat5.patt'>
-        <a-entity id="test5"  gltf-model="#man" position="0 0 0"
-                  animation-mixer="clip:Idle">
-            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
+<!--        </a-entity>-->
+<!--    </a-marker>-->
+<!--    <a-marker type='pattern' url='data/pattern-pat5.patt'>-->
+<!--        <a-entity id="test5"  gltf-model="#man" position="0 0 0"-->
+<!--                  animation-mixer="clip:Idle">-->
+<!--            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>-->
 
-        </a-entity>
-    </a-marker>
+<!--        </a-entity>-->
+<!--    </a-marker>-->
     <a-entity camera ></a-entity>
 <!--    <a-entity camera manager></a-entity>-->
 </a-scene>
