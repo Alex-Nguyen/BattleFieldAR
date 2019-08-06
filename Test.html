@@ -8,8 +8,34 @@
 <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/mayognaise/aframe-gif-shader/dist/aframe-gif-shader.min.js"></script>
 <script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/fontawesome.min.css">
 <body style='margin : 0px; overflow: hidden;'>
+
+    <ul  class="nav fixed-top nav-pills nav-fill" style="z-index: 10; padding-top: 20px">
+        <li class="nav-item">
+            <button type="button" class="btn btn-dark">Stage 1</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" class="btn btn-dark">Stage 2</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" class="btn btn-dark">Stage 3</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" class="btn btn-dark">Stage 4</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" class="btn btn-dark">Stage 5</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" class="btn btn-dark">ScreenShot</button>
+
+        </li>
+    </ul>
+
+
+
 <a-scene embedded arjs='sourceType: webcam;'>
     <a-assets>
         <img id="unionFlag" src="data/unionFlags.jpg">

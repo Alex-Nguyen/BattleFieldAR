@@ -8,12 +8,15 @@
 <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/mayognaise/aframe-gif-shader/dist/aframe-gif-shader.min.js"></script>
 <script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <style>
     #countdown {
         position: absolute;
         top: 0;
         left: 10px;
+        display: none;
     }
 </style>
 <script>
@@ -32,7 +35,28 @@
 </script>
 <body style='margin : 0px; overflow: hidden;'>
 <div id="countdown"></div>
-<a-scene  embedded arjs='sourceType: webcam;'>
+<ul class="nav fixed-top nav-pills nav-fill" style="z-index: 10; padding-top: 20px">
+    <li class="nav-item">
+        <button type="button" class="btn btn-dark">Stage 1</button>
+    </li>
+    <li class="nav-item">
+        <button type="button" class="btn btn-dark">Stage 2</button>
+    </li>
+    <li class="nav-item">
+        <button type="button" class="btn btn-dark">Stage 3</button>
+    </li>
+    <li class="nav-item">
+        <button type="button" class="btn btn-dark">Stage 4</button>
+    </li>
+    <li class="nav-item">
+        <button type="button" class="btn btn-dark">Stage 5</button>
+    </li>
+    <li class="nav-item">
+        <button type="button" class="btn btn-dark">ScreenShot</button>
+
+    </li>
+</ul>
+<a-scene embedded arjs='sourceType: webcam;'>
     <a-assets>
         <img id="unionFlag" src="data/unionFlags.jpg">
         <img id="confederate" src="data/confederate.jpg">
@@ -76,24 +100,32 @@
               spe-particles__fire="texture: images/explosion_sheet.png; texture-frames: 5 5; velocity: .4 .1 0; acceleration: 0 2 0; acceleration-spread: 0 2 0; velocity-spread: .4 0 .4; particle-count: 15; max-age: 1; size: 4,8; size-spread: 2; opacity: 1,0; wiggle: 0 1 0; blending: additive"
               position="0 0 -10">
     </a-entity>
-    <a-entity id="source"  gltf-model="#man" position="5.5 0.5 -15" rotation="0 -90 0" scale="0.6 0.6 0.6"
+    <a-entity id="source" gltf-model="#man" position="5.5 0.5 -15" rotation="0 -90 0" scale="0.6 0.6 0.6"
               animation-mixer="clip:Idle">
-<!--        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>-->
+        <!--        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>-->
         <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
 
     </a-entity>
 
-    <a-entity id="target1" gltf-model="#man" position="-0.5 0 -7"  scale="0.6 0.6 0.6"
+    <a-entity id="target1" gltf-model="#man" position="-0.5 0 -7" scale="0.6 0.6 0.6"
               animation-mixer="clip:Idle">
-<!--        <a-text value="Confederate Troops" look-at="[camera]"  position="0 1.5 0" color="blue" scale="2 2 2"></a-text>-->
-        <a-plane src="#confederate" height=".8" look-at="[camera]"  position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
+        <!--        <a-text value="Confederate Troops" look-at="[camera]"  position="0 1.5 0" color="blue" scale="2 2 2"></a-text>-->
+        <a-plane src="#confederate" height=".8" look-at="[camera]" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
     </a-entity>
-    <a-entity id="target2" gltf-model="#man" position="-0.6 -0.2 -7"  scale="0.6 0.6 0.6"
-              animation-mixer="clip:Idle">
-    </a-entity>
-    <a-entity id="target3" gltf-model="#man" position="-0.7 -0.5 -7"  scale="0.6 0.6 0.6"
+    <a-entity id="target2" gltf-model="#man" position="-0.6 -0.2 -7" scale="0.6 0.6 0.6"
               animation-mixer="clip:Idle">
     </a-entity>
+    <a-entity id="target3" gltf-model="#man" position="-0.7 -0.5 -7" scale="0.6 0.6 0.6"
+              animation-mixer="clip:Idle">
+    </a-entity>
+    <a-marker type='pattern' url='data/pattern-P1.patt'>
+        <a-entity id="test"  gltf-model="#man" position="0 0.5 0" rotation="0 -90 0" scale="0.6 0.6 0.6"
+                  animation-mixer="clip:Idle">
+            <!--        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>-->
+            <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
+
+        </a-entity>
+    </a-marker>
     <a-entity camera manager></a-entity>
 </a-scene>
 </body>
