@@ -52,6 +52,15 @@
         </a-entity>
     </a-marker>
 
+    <a-marker type='pattern' url='data/pattern-pat33.patt'>
+        <a-entity id="source2"  gltf-model="#man" position="0 0.5 0" rotation="0 -90 0" scale="0.6 0.6 0.6"
+                  animation-mixer="clip:Idle">
+            <!--        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>-->
+            <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
+
+        </a-entity>
+    </a-marker>
+
     <!-- add a simple camera -->
     <a-entity camera></a-entity>
 </a-scene>
