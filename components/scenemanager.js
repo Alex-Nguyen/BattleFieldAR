@@ -56,10 +56,10 @@ AFRAME.registerComponent('manager', {
 
         $('#stage1').removeClass('btn-dark');
         $('#stage1').addClass('btn-danger active');
-        $('#stage2').removeClass('active');
-        $('#stage3').removeClass('active');
-        $('#stage4').removeClass('active');
-        $('#stage5').removeClass('active');
+        $('#stage2').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage4').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
 
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible','false')
@@ -219,9 +219,9 @@ AFRAME.registerComponent('manager', {
         },
     stage2Handler:function(){
         $('#stage1').removeClass('btn-danger active').addClass('btn-dark');
-        $('#stage3').removeClass('active');
-        $('#stage4').removeClass('active');
-        $('#stage5').removeClass('active');
+        $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage4').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage2').removeClass('btn-dark').addClass('btn-danger active');
 
         let fire = document.querySelector('#fire1')
@@ -286,9 +286,9 @@ AFRAME.registerComponent('manager', {
         $('#stage2').addClass('btn-dark').removeClass('btn-danger active');
 
 
-        $('#stage1').removeClass('active');
-        $('#stage4').removeClass('active');
-        $('#stage5').removeClass('active');
+        $('#stage1').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage4').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
         let self = this;
         let s1 = document.querySelector('#s1');
         s1.removeAttribute('animation-mixer');
@@ -307,9 +307,9 @@ AFRAME.registerComponent('manager', {
         $('#stage4').addClass('btn-danger active').removeClass('btn-dark')
 
         $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
-        $('#stage2').removeClass('active');
-        $('#stage1').removeClass('active');
-        $('#stage5').removeClass('active');
+        $('#stage2').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage1').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
         let scene = document.querySelector('a-scene');
         let pos2 =document.querySelector('#pos2').object3D.position;
         let old1 = document.querySelector('#s11');
