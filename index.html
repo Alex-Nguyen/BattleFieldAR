@@ -11,7 +11,7 @@
 <script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script>
 <style>
     #countdown {
         position: absolute;
@@ -21,14 +21,14 @@
     }
 
 </style>
-<body style='margin : 0px; overflow: hidden;'>
+<body style='margin :auto; overflow: hidden;'>
 <div id="countdown"></div>
 <div  class="fixed-bottom">
     <p class="text-center bg-info" id="battleInfo">Colonel Theodore H. Barrett, commander of the Union forces ordered his troops to advance towards the Confederate stronghold of Fort Brown
     </p>
 </div>
-<div class="fixed=-top">
-    <ul class="nav nav-pills nav-fill" >
+<div class="fixed-top m-4">
+    <ul class="nav nav-pills nav-justified" >
         <li class="nav-item">
             <button type="button" disabled id="stage1" class="btn btn-dark active">Stage 1</button>
         </li>
@@ -43,10 +43,6 @@
         </li>
         <li class="nav-item">
             <button type="button" disabled id="stage5" class="btn btn-dark">Stage 5</button>
-        </li>
-        <li class="nav-item">
-            <button type="button"  id="buttonFullscreen" class="btn btn-dark">F</button>
-
         </li>
         <li class="nav-item">
             <a href="data/printedmap.pdf" download type="button" class="btn btn-dark">Print Map</a>
