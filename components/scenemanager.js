@@ -23,20 +23,17 @@ AFRAME.registerComponent('manager', {
     stage1Handler:function(){
         console.log("Start stage 1")
         let self = this;
-        var timeToStart = 3;
+        var timeToStart = 2;
         var downloadTimer = setInterval(function () {
-            $("#countdown").text(`Scene 1 will start in ${timeToStart} seconds`);
+            $("#countdown").text(`Stage1 starts in ${timeToStart} secs`);
             timeToStart -= 1;
             if (timeToStart <= 0) {
-                let el = document.querySelector('#source');
-                el.setAttribute('alongpath', {curve: '#track1', dur: 5000, rotate: true});
-                el.setAttribute('animation-mixer',{clip:'mixamo.com'})
-                el.addEventListener('movingended',function () {
-                    el.removeAttribute('alongpath');
-                    el.removeAttribute('animation-mixer')
-                    $("#countdown").text(`Stage 1 clear - Start Stage 2`);
-                    self.el.emit('StartStage2','',false);
-                });
+                let el = document.querySelector('#source').object3D;
+                let tg = document.querySelector('#pos2').object3D.getWorldPosition();
+                createjs.Tween.get(el.position)
+                    .to(tg, 3000)
+                $("#countdown").text(`Stage1 starts in ${tg.x} secs`);
+
                 clearInterval(downloadTimer);
             }
         }, 1000);
