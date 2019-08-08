@@ -19,6 +19,14 @@
         left: 10px;
 
     }
+    #narator{
+        position: absolute;
+        width: 100%;
+        bottom: 50px;
+        align-content: center;
+        z-index: 10;
+
+    }
 </style>
 <script>
 
@@ -36,6 +44,9 @@
 </script>
 <body style='margin : 0px; overflow: hidden;'>
 <div id="countdown"></div>
+<div id="narator" >
+    <p class="text-center bg-info" id="battleInfo"></p>
+</div>
 <ul class="nav fixed-top nav-pills nav-fill" style="z-index: 10; padding-top: 20px">
     <li class="nav-item">
         <button type="button" disabled id="stage1" class="btn btn-dark">Stage 1</button>
@@ -95,7 +106,7 @@
         <a-curve-point position="-3 -1 -10"></a-curve-point>
         <a-curve-point position="-4 -1.5 -10"></a-curve-point>
     </a-curve>
-    <a-entity id="fire1" visible="false" position="0 0 -15" rotation="0 0 42"
+    <a-entity id="fire1" visible="false"  rotation="0 0 42"
               spe-particles__sparks="texture: images/square.png; color: yellow, red; particle-count: 10; max-age: 0.5; max-age-spread: 0.4; velocity: 0 5 0; velocity-spread: 0 3 0; wiggle: 1 0 1; wiggle-spread: 5 0 5; emitter-scale: 50; size-spread: .5; randomize-velocity: true"
               spe-particles__smoke="texture: images/fog.png; velocity: .4 2 0; velocity-spread: 1.4 0 1.4; particle-count: 50; max-age: 4; size: 8,16; opacity: 0,1,0; color: #666,#222"
               spe-particles__fire="texture: images/explosion_sheet.png; texture-frames: 5 5; velocity: .4 .1 0; acceleration: 0 2 0; acceleration-spread: 0 2 0; velocity-spread: .4 0 .4; particle-count: 15; max-age: 1; size: 4,8; size-spread: 2; opacity: 1,0; wiggle: 0 1 0; blending: additive"
@@ -103,12 +114,12 @@
     </a-entity>
     <a-marker id="pos1" type='pattern' url='data/pattern-pos1.patt'>
         <a-entity id="union" gltf-model="#man" animation-mixer="clip:Idle">
-            <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1"
+            <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0"
                      width="1.2"></a-plane>
         </a-entity>
     </a-marker>
     <a-marker id="pos2" type='pattern' url='data/pattern-pos2.patt'>
-        <a-entity  gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"
+        <a-entity id="conf"  gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"
                   animation-mixer="clip:Idle">
             <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1"
                      width="1.2"></a-plane>
@@ -117,36 +128,15 @@
     </a-marker>
 
     <a-marker id="pos3" type='pattern' url='data/pattern-pos3.patt'>
-        <a-entity  gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"
-                  animation-mixer="clip:Idle">
-            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1"
-                     width="1.2"></a-plane>
 
-        </a-entity>
     </a-marker>
     <a-marker id="pos4" type='pattern' url='data/pattern-pos4.patt'>
-        <a-entity  gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"
-                  animation-mixer="clip:Idle">
-            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1"
-                     width="1.2"></a-plane>
 
-        </a-entity>
     </a-marker>
     <a-marker id="pos5" type='pattern' url='data/pattern-pos5.patt'>
-        <a-entity  gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"
-                  animation-mixer="clip:Idle">
-            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1"
-                     width="1.2"></a-plane>
 
-        </a-entity>
     </a-marker>
     <a-marker id="pos6" type='pattern' url='data/pattern-pos6.patt'>
-        <a-entity  gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"
-                  animation-mixer="clip:Idle">
-            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1"
-                     width="1.2"></a-plane>
-
-        </a-entity>
     </a-marker>
     <a-entity camera></a-entity>
 </a-scene>
