@@ -105,16 +105,18 @@ AFRAME.registerComponent('manager', {
         let pos1 = document.querySelector('#pos1').object3D;
         let pos2 = document.querySelector('#pos2').object3D;
         let pos3 = document.querySelector('#pos3').object3D;
-         // let pos4 = document.querySelector('#pos4').object3D;
-        // let pos5 = document.querySelector('#pos5').object3D;
-        // let pos6 = document.querySelector('#pos6').object3D;
+        let pos4 = document.querySelector('#pos4').object3D;
+        let pos5 = document.querySelector('#pos5').object3D;
+        let pos6 = document.querySelector('#pos6').object3D;
         let flag1 = pos1.visible === true && pos2.visible === true;
         let flag2 = pos2.visible === true && pos3.visible === true;
         let flag3 = pos2.visible === true;
-        
+        let flag4 = pos1.visible === true && pos2.visible === true&& pos3.visible === true&& pos4.visible === true&& pos5.visible === true&& pos6.visible === true;
+
         $('#stage1').prop('disabled', !flag1);
         $('#stage2').prop('disabled', !flag2);
         $('#stage3').prop('disabled', !flag3);
+        $('#stage4').prop('disabled', !flag4);
 
 
 
