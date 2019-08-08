@@ -196,10 +196,7 @@ AFRAME.registerComponent('manager', {
             el2.setAttribute('alongpath', {curve: '#track5', dur: 3000, rotate: true, delay:2000});
             el3.setAttribute('alongpath', {curve: '#track6', dur: 3000, rotate: true, delay:2000});
             el1.addEventListener('movingended',self.stage2Handler)
-            //
-            // createjs.Tween.get(el1.object3D.position).wait(2000).to(pos4, 3000);
-            // createjs.Tween.get(el2.object3D.position).wait(2000).to(pos5, 3000);
-            // createjs.Tween.get(el3.object3D.position).wait(2000).to(pos6, 3000).call(self.stage2Handler);
+
         }
 
 
@@ -253,7 +250,18 @@ AFRAME.registerComponent('manager', {
         let pos3 =document.querySelector('#pos3').object3D.position;
         $("#battleInfo").text(`After the small confrontation at Palmito Ranch, Branson and the Union troops retreated to the hill nearby to rest their troops and animals`)
 
-        createjs.Tween.get(el.object3D.position).wait(2000).to(pos3, 3000).call(self.stage3Handler);
+        let curve = document.createElement('a-curve');
+        curve.setAttribute('id','track7');
+        let curvePoint1 = document.createElement('a-curve-point');
+        let curvePoint2 = document.createElement('a-curve-point');
+        curvePoint1.setAttribute('position',el.object3D.position);
+        curvePoint2.setAttribute('position',pos3);
+        curve.appendChild(curvePoint1);
+        curve.appendChild(curvePoint2);
+        scene.appendChild(curve);
+        el.setAttribute('alongpath', {curve: '#track7', dur: 3000, rotate: true, delay:2000});
+
+        // createjs.Tween.get(el.object3D.position).wait(2000).to(pos3, 3000).call(self.stage3Handler);
     },
     stage3Handler:function(){
         let self = this;
