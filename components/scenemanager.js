@@ -52,6 +52,24 @@ AFRAME.registerComponent('manager', {
 
 
     },
+    removeExistingModel:function(){
+        let s1 = document.querySelector('#s1');
+        let s11 = document.querySelector('#s11');
+        let s22 = document.querySelector('#s22');
+        let s33 = document.querySelector('#s33');
+        if(s1){
+            s1.parentNode.removeChild(s1);
+        }
+        if(s11){
+            s11.parentNode.removeChild(s11)
+        }
+        if(s22){
+            s22.parentNode.removeChild(s22)
+        }
+        if(s33){
+            s33.parentNode.removeChild(s33)
+        }
+    },
     stage1Handler:function(){
 
         $('#stage1').removeClass('btn-dark');
@@ -64,11 +82,7 @@ AFRAME.registerComponent('manager', {
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible','false')
         let self = this;
-        let old = document.querySelector('#s1');
-        if(old){
-            old.parentNode.removeChild(old);
-
-        }
+        self.removeExistingModel();
 
         let el = document.createElement('a-entity');
         el.setAttribute('gltf-model','#man');
@@ -228,12 +242,7 @@ AFRAME.registerComponent('manager', {
         fire.setAttribute('visible','false')
         let scene = document.querySelector('a-scene');
         let self = this;
-
-        let old = document.querySelector('#s1');
-        if(old){
-            old.parentNode.removeChild(old);
-
-        }
+        self.removeExistingModel();
 
         let el = document.createElement('a-entity');
         el.setAttribute('gltf-model','#man');
@@ -312,21 +321,7 @@ AFRAME.registerComponent('manager', {
         $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
         let scene = document.querySelector('a-scene');
         let pos2 =document.querySelector('#pos2').object3D.position;
-        let old1 = document.querySelector('#s11');
-        let old2 = document.querySelector('#s22');
-        let old3 = document.querySelector('#s33');
-        if(old1){
-            old1.parentNode.removeChild(old1);
-
-        }
-        if(old2){
-            old2.parentNode.removeChild(old2);
-
-        }
-        if(old3){
-            old3.parentNode.removeChild(old3);
-
-        }
+        self.removeExistingModel();
         let pos4 =document.querySelector('#pos4').object3D.position;
         let pos5 =document.querySelector('#pos5').object3D.position;
         let pos6 =document.querySelector('#pos6').object3D.position;
