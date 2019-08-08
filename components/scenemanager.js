@@ -194,6 +194,8 @@ AFRAME.registerComponent('manager', {
         setTimeout(self.stage4Handler,2000);
     },
     stage4Handler:function(){
+        $("#battleInfo").html("At 3pm, the Confederates came with reinforcements");
+
         let scene = document.querySelector('a-scene');
         let pos2 =document.querySelector('#pos2').object3D.position;
         let old1 = document.querySelector('#s11');
@@ -254,6 +256,8 @@ AFRAME.registerComponent('manager', {
         createjs.Tween.get(el2.object3D.position).wait(2000).to(pos2, 3000);
         createjs.Tween.get(el3.object3D.position).wait(2000).to(pos2, 3000).call(returnToBase);
         function returnToBase() {
+            $("#battleInfo").html("Federals retreated to White’s Ranch.");
+
             let old1 = document.querySelector('#s11');
             let old2 = document.querySelector('#s22');
             let old3 = document.querySelector('#s33');
