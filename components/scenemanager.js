@@ -260,13 +260,14 @@ AFRAME.registerComponent('manager', {
         curve.appendChild(curvePoint2);
         scene.appendChild(curve);
         el.setAttribute('alongpath', {curve: '#track7', dur: 3000, rotate: true, delay:2000});
-
+        el.addEventListener('movingended',self.stage3Handler)
         // createjs.Tween.get(el.object3D.position).wait(2000).to(pos3, 3000).call(self.stage3Handler);
     },
     stage3Handler:function(){
         let self = this;
         let s1 = document.querySelector('#s1');
         s1.removeAttribute('animation-mixer');
+        s1.removeEventListener('movingended',self.stage3Handler);
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible','true')
         let pos2 =document.querySelector('#pos2').object3D.position;
@@ -334,16 +335,52 @@ AFRAME.registerComponent('manager', {
         el3.object3D.position.y = pos6.y;
         el3.object3D.position.z = pos6.z;
         scene.appendChild(el3);
-        this.fire.setAttribute('visible','false')
-        createjs.Tween.get(el1.object3D.position).wait(2000).to(pos2, 3000);
-        createjs.Tween.get(el2.object3D.position).wait(2000).to(pos2, 3000);
-        createjs.Tween.get(el3.object3D.position).wait(2000).to(pos2, 3000).call(returnToBase);
+        this.fire.setAttribute('visible','false');
+
+
+        let track8 = document.createElement('a-curve');
+        track8.setAttribute('id','track8');
+        let track81 = document.createElement('a-curve-point');
+        let track82 = document.createElement('a-curve-point');
+        track81.setAttribute('position',el1.object3D.position);
+        track82.setAttribute('position',pos2);
+        track8.appendChild(track81);
+        track8.appendChild(track82);
+        scene.appendChild(track8);
+
+        let track9 = document.createElement('a-curve');
+        track9.setAttribute('id','track9');
+        let track91 = document.createElement('a-curve-point');
+        let track92 = document.createElement('a-curve-point');
+        track91.setAttribute('position',el2.object3D.position);
+        track92.setAttribute('position',pos2);
+        track9.appendChild(track91);
+        track9.appendChild(track92);
+        scene.appendChild(track9);
+
+        let track10 = document.createElement('a-curve');
+        track10.setAttribute('id','track10');
+        let track101 = document.createElement('a-curve-point');
+        let track102 = document.createElement('a-curve-point');
+        track101.setAttribute('position',el3.object3D.position);
+        track102.setAttribute('position',pos2);
+        track10.appendChild(track101);
+        track10.appendChild(track102);
+        scene.appendChild(track10);
+
+
+        el1.setAttribute('alongpath', {curve: '#track8', dur: 3000, rotate: true, delay:2000});
+        el2.setAttribute('alongpath', {curve: '#track9', dur: 3000, rotate: true, delay:2000});
+        el3.setAttribute('alongpath', {curve: '#track10', dur: 3000, rotate: true, delay:2000});
+        el1.addEventListener('movingended',returnToBase)
+
         function returnToBase() {
             $("#battleInfo").html("Federals retreated to White’s Ranch.");
 
             let old1 = document.querySelector('#s11');
             let old2 = document.querySelector('#s22');
             let old3 = document.querySelector('#s33');
+            old1.removeEventListener('movingended',returnToBase);
             old1.removeAttribute('animation-mixer');
             old2.removeAttribute('animation-mixer');
             old3.removeAttribute('animation-mixer');
@@ -371,13 +408,26 @@ AFRAME.registerComponent('manager', {
             scene.appendChild(el);
 
             let pos1 =document.querySelector('#pos1').object3D.position;
-            createjs.Tween.get(el.object3D.position).wait(2000).to(pos1, 3000).call(reachBased1);
+
+
+            let track11 = document.createElement('a-curve');
+            track11.setAttribute('id','track11');
+            let curvePoint111 = document.createElement('a-curve-point');
+            let curvePoint112 = document.createElement('a-curve-point');
+            curvePoint111.setAttribute('position',el.object3D.position);
+            curvePoint112.setAttribute('position',pos1);
+            track11.appendChild(curvePoint111);
+            track11.appendChild(curvePoint112);
+            scene.appendChild(track11);
+
+            el.setAttribute('alongpath', {curve: '#track11', dur: 3000, rotate: true, delay:2000});
+            el.addEventListener('movingended',reachBased1)
             function reachBased1() {
                 let s1 = document.querySelector('#s1');
                 s1.removeAttribute('animation-mixer');
+                s1.removeEventListener('movingended',reachBased1);
             }
         }
-
 
     },
     tick:function (time, timeDelta) {
