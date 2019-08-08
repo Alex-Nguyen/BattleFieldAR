@@ -55,7 +55,12 @@ AFRAME.registerComponent('manager', {
     },
     stage1Handler:function(){
         this.stage1Animation=true;
-        $('#stage1').addClass('active')
+        $('#stage1').addClass('active');
+        $('#stage2').removeClass('active');
+        $('#stage3').removeClass('active');
+        $('#stage4').removeClass('active');
+        $('#stage5').removeClass('active');
+
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible','false')
         let self = this;
@@ -213,7 +218,10 @@ AFRAME.registerComponent('manager', {
 
         },
     stage2Handler:function(){
-        $('#stage1').removeClass('active')
+        $('#stage1').removeClass('active');
+        $('#stage3').removeClass('active');
+        $('#stage4').removeClass('active');
+        $('#stage5').removeClass('active');
         $('#stage2').addClass('active')
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible','false')
@@ -278,7 +286,10 @@ AFRAME.registerComponent('manager', {
     },
     stage3Handler:function(){
         $('#stage3').addClass('active')
-        $('#stage2').removeClass('active')
+        $('#stage2').removeClass('active');
+        $('#stage1').removeClass('active');
+        $('#stage4').removeClass('active');
+        $('#stage5').removeClass('active');
         let self = this;
         let s1 = document.querySelector('#s1');
         s1.removeAttribute('animation-mixer');
@@ -295,7 +306,10 @@ AFRAME.registerComponent('manager', {
     stage4Handler:function(){
         $("#battleInfo").html("At 3pm, the Confederates came with reinforcements");
         $('#stage4').addClass('active');
+        $('#stage1').removeClass('active');
+        $('#stage2').removeClass('active');
         $('#stage3').removeClass('active');
+        $('#stage5').removeClass('active');
         let scene = document.querySelector('a-scene');
         let pos2 =document.querySelector('#pos2').object3D.position;
         let old1 = document.querySelector('#s11');
