@@ -101,32 +101,10 @@
               spe-particles__fire="texture: images/explosion_sheet.png; texture-frames: 5 5; velocity: .4 .1 0; acceleration: 0 2 0; acceleration-spread: 0 2 0; velocity-spread: .4 0 .4; particle-count: 15; max-age: 1; size: 4,8; size-spread: 2; opacity: 1,0; wiggle: 0 1 0; blending: additive"
               position="0 0 -10">
     </a-entity>
-<!--    <a-entity id="source" gltf-model="#man" position="4.0 0.5 -17" rotation="0 -90 0" scale="0.6 0.6 0.6"-->
-<!--              animation-mixer="clip:Idle">-->
-<!--        &lt;!&ndash;        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>&ndash;&gt;-->
-<!--        <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>-->
-
-<!--    </a-entity>-->
-
-<!--    <a-entity id="target1" gltf-model="#man" position="-0.3 0 -7" scale="0.6 0.6 0.6"-->
-<!--              animation-mixer="clip:Idle">-->
-<!--        &lt;!&ndash;        <a-text value="Confederate Troops" look-at="[camera]"  position="0 1.5 0" color="blue" scale="2 2 2"></a-text>&ndash;&gt;-->
-<!--        <a-plane src="#confederate" height=".8" look-at="[camera]" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>-->
-<!--    </a-entity>-->
-<!--    <a-entity id="target2" gltf-model="#man" position="-0.4 -0.2 -7" scale="0.6 0.6 0.6"-->
-<!--              animation-mixer="clip:Idle">-->
-<!--    </a-entity>-->
-<!--    <a-entity id="target3" gltf-model="#man" position="-0.5 -0.5 -7" scale="0.6 0.6 0.6"-->
-<!--              animation-mixer="clip:Idle">-->
-<!--    </a-entity>-->
-
-
     <a-marker id="pos1" type='pattern' url='data/pattern-pos1.patt'>
-        <a-entity id="union" gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"
-                  animation-mixer="clip:Idle">
+        <a-entity id="union" gltf-model="#man" animation-mixer="clip:Idle">
             <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1"
                      width="1.2"></a-plane>
-
         </a-entity>
     </a-marker>
     <a-marker id="pos2" type='pattern' url='data/pattern-pos2.patt'>
