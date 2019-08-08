@@ -115,6 +115,48 @@ AFRAME.registerComponent('manager', {
         el.object3D.position.z = pos1.position.z;
         scene.appendChild(el);
 
+
+
+        let el1 = document.createElement('a-entity');
+        el1.setAttribute('gltf-model','#man');
+        el1.setAttribute('id','s11');
+        el1.setAttribute('animation-mixer',{clip:'mixamo.com'})
+        el1.object3D.position.x = pos2.position.x-0.5;
+        el1.object3D.position.y = pos2.position.y+0.2;
+        el1.object3D.position.z = pos2.position.z;
+
+        let confederateFlag = document.createElement('a-plane');
+        confederateFlag.setAttribute('src','#confederate');
+        confederateFlag.setAttribute('height',"0.8");
+        confederateFlag.setAttribute('width',"1.2");
+        confederateFlag.setAttribute('position',"0 2 0");
+        confederateFlag.setAttribute('look-at',"[camera]");
+        el1.appendChild(confederateFlag)
+        scene.appendChild(el1);
+
+        let el2 = document.createElement('a-entity');
+        el2.setAttribute('gltf-model','#man');
+        el2.setAttribute('id','s22');
+        el2.setAttribute('animation-mixer',{clip:'mixamo.com'})
+        el2.object3D.position.x = pos2.position.x-0.5;
+        el2.object3D.position.y = pos2.position.y;
+        el2.object3D.position.z = pos2.position.z;
+
+        scene.appendChild(el2);
+
+
+        let el3 = document.createElement('a-entity');
+        el3.setAttribute('gltf-model','#man');
+        el3.setAttribute('id','s33');
+        el3.setAttribute('animation-mixer',{clip:'mixamo.com'})
+        el3.object3D.position.x = pos2.position.x-0.5;
+        el3.object3D.position.y = pos2.position.y-0.2;
+        el3.object3D.position.z = pos2.position.z;
+        scene.appendChild(el3);
+
+
+
+
         let curve = document.createElement('a-curve');
         curve.setAttribute('id','track1');
         let curvePoint1 = document.createElement('a-curve-point');
@@ -127,68 +169,21 @@ AFRAME.registerComponent('manager', {
         el.setAttribute('alongpath', {curve: '#track1', dur: 3000, rotate: true, delay:2000});
         el.addEventListener('movingended',runaway)
         $("#battleInfo").html("8:30 AM May 12th 1865 Branson led his men off to attack a Confederate camp at Palmito Ranch");
-        // createjs.Tween.get(el.object3D.position).to(pos2, 3000).call(runaway)
         function runaway() {
             let old = document.querySelector('#s1');
             old.removeAttribute('animation-mixer');
             old.removeEventListener('movingended',runaway)
-            let old1 = document.querySelector('#s11');
-            let old2 = document.querySelector('#s22');
-            let old3 = document.querySelector('#s33');
-            if(old1){
-                old1.parentNode.removeChild(old1);
 
-            }
-            if(old2){
-                old2.parentNode.removeChild(old2);
 
-            }
-            if(old3){
-                old3.parentNode.removeChild(old3);
-
-            }
-
-            let pos2 =document.querySelector('#pos2').object3D;
+            
             let pos4 =document.querySelector('#pos4').object3D.position;
             let pos5 =document.querySelector('#pos5').object3D.position;
             let pos6 =document.querySelector('#pos6').object3D.position;
-            let el1 = document.createElement('a-entity');
-            el1.setAttribute('gltf-model','#man');
-            el1.setAttribute('id','s11');
-            el1.setAttribute('animation-mixer',{clip:'mixamo.com'})
-            el1.object3D.position.x = pos2.position.x-0.5;
-            el1.object3D.position.y = pos2.position.y+0.2;
-            el1.object3D.position.z = pos2.position.z;
-
-            let confederateFlag = document.createElement('a-plane');
-            confederateFlag.setAttribute('src','#confederate');
-            confederateFlag.setAttribute('height',"0.8");
-            confederateFlag.setAttribute('width',"1.2");
-            confederateFlag.setAttribute('position',"0 2 0");
-            confederateFlag.setAttribute('look-at',"[camera]");
-            el1.appendChild(confederateFlag)
-            scene.appendChild(el1);
-
-            let el2 = document.createElement('a-entity');
-            el2.setAttribute('gltf-model','#man');
-            el2.setAttribute('id','s22');
-            el2.setAttribute('animation-mixer',{clip:'mixamo.com'})
-            el2.object3D.position.x = pos2.position.x-0.5;
-            el2.object3D.position.y = pos2.position.y;
-            el2.object3D.position.z = pos2.position.z;
-
-            scene.appendChild(el2);
+            let el1 = document.querySelector('#s11');
+            let el2 = document.querySelector('#s22');
+            let el3 = document.querySelector('#s33');
 
 
-            let el3 = document.createElement('a-entity');
-            el3.setAttribute('gltf-model','#man');
-            el3.setAttribute('id','s33');
-            el3.setAttribute('animation-mixer',{clip:'mixamo.com'})
-            el3.object3D.position.x = pos2.position.x-0.5;
-            el3.object3D.position.y = pos2.position.y-0.2;
-            el3.object3D.position.z = pos2.position.z;
-
-            scene.appendChild(el3);
             $("#battleInfo").text(`After skirmishing along the way, the Federals attacked the camp and scattered the Confederates`)
 
             let track4 = document.createElement('a-curve');
