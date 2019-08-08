@@ -1,16 +1,16 @@
 
 AFRAME.registerComponent('manager', {
     init: function () {
-        $( "#stage1" ).click(function() {
-            alert( "Handler for .click() called." );
-        });
+        let self = this;
+        this.stage1Handler = this.stage1Handler.bind(this);
+        $( "#stage1" ).click(self.stage1Handler);
         let pos1 = document.querySelector('#pos1').object3D.visible;
         let pos2 = document.querySelector('#pos2').object3D.visible;
         let pos3 = document.querySelector('#pos3').object3D.visible;
         let pos4 = document.querySelector('#pos4').object3D.visible;
         let pos5 = document.querySelector('#pos5').object3D.visible;
         let pos6 = document.querySelector('#pos6').object3D.visible;
-        // this.stage1Handler = this.stage1Handler.bind(this);
+
         // this.stage2Handler = this.stage2Handler.bind(this);
         // this.stage3Handler = this.stage3Handler.bind(this);
         // this.stage4Handler = this.stage4Handler.bind(this);
@@ -84,14 +84,14 @@ AFRAME.registerComponent('manager', {
         console.log("Start stage 4")
     },
     tick:function (time, timeDelta) {
-        let pos1 = document.querySelector('#pos1').object3D.visible;
-        let pos2 = document.querySelector('#pos2').object3D.visible;
-        let pos3 = document.querySelector('#pos3').object3D.visible;
-        let pos4 = document.querySelector('#pos4').object3D.visible;
-        let pos5 = document.querySelector('#pos5').object3D.visible;
-        let pos6 = document.querySelector('#pos6').object3D.visible;
-        if(pos1.visible&&pos2.visible){
-            $('#stage1').prop('disabled', false);
-        }
+        let pos1 = document.querySelector('#pos1').object3D;
+        let pos2 = document.querySelector('#pos2').object3D;
+        let pos3 = document.querySelector('#pos3').object3D;
+        let pos4 = document.querySelector('#pos4').object3D;
+        let pos5 = document.querySelector('#pos5').object3D;
+        let pos6 = document.querySelector('#pos6').object3D;
+        let flag1 = pos1.visible === true && pos2.visible === true;
+        $('#stage1').prop('disabled', !flag1);
+
     }
 });
