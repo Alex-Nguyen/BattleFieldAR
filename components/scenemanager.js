@@ -222,7 +222,8 @@ AFRAME.registerComponent('manager', {
         $('#stage3').removeClass('active');
         $('#stage4').removeClass('active');
         $('#stage5').removeClass('active');
-        $('#stage2').addClass('active')
+        $('#stage2').removeClass('btn-dark').addClass('btn-danger active');
+
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible','false')
         let scene = document.querySelector('a-scene');
@@ -279,11 +280,12 @@ AFRAME.registerComponent('manager', {
         scene.appendChild(curve);
         el.setAttribute('alongpath', {curve: '#track7', dur: 3000, rotate: true, delay:2000});
         el.addEventListener('movingended',self.stage3Handler)
-        // createjs.Tween.get(el.object3D.position).wait(2000).to(pos3, 3000).call(self.stage3Handler);
     },
     stage3Handler:function(){
-        $('#stage3').addClass('active')
-        $('#stage2').removeClass('active');
+        $('#stage3').addClass('btn-danger active').removeClass('btn-dark')
+        $('#stage2').addClass('btn-dark').removeClass('btn-danger active');
+
+
         $('#stage1').removeClass('active');
         $('#stage4').removeClass('active');
         $('#stage5').removeClass('active');
@@ -302,10 +304,11 @@ AFRAME.registerComponent('manager', {
     },
     stage4Handler:function(){
         $("#battleInfo").html("At 3pm, the Confederates came with reinforcements");
-        $('#stage4').addClass('active');
-        $('#stage1').removeClass('active');
+        $('#stage4').addClass('btn-danger active').removeClass('btn-dark')
+
+        $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage2').removeClass('active');
-        $('#stage3').removeClass('active');
+        $('#stage1').removeClass('active');
         $('#stage5').removeClass('active');
         let scene = document.querySelector('a-scene');
         let pos2 =document.querySelector('#pos2').object3D.position;
