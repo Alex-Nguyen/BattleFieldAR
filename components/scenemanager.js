@@ -84,11 +84,24 @@ AFRAME.registerComponent('manager', {
         el.object3D.position.y = pos1.position.y;
         el.object3D.position.z = pos1.position.z;
         scene.appendChild(el);
+
+        let curve = document.createElement('a-curve');
+        curve.setAttribute('id','track1');
+        let curvePoint1 = document.createElement('a-curve-point');
+        let curvePoint2 = document.createElement('a-curve-point');
+        curvePoint1.setAttribute('position',el.object3D.position);
+        curvePoint2.setAttribute('position',pos2);
+        curve.appendChild(curvePoint1);
+        curve.appendChild(curvePoint2);
+        scene.appendChild(curve);
+        el.setAttribute('alongpath', {curve: '#track1', dur: 3000, rotate: true, delay:2000});
+        el.addEventListener('movingended',runaway)
         $("#battleInfo").html("8:30 AM May 12th 1865 Branson led his men off to attack a Confederate camp at Palmito Ranch");
-        createjs.Tween.get(el.object3D.position).to(pos2, 3000).call(runaway)
+        // createjs.Tween.get(el.object3D.position).to(pos2, 3000).call(runaway)
         function runaway() {
             let old = document.querySelector('#s1');
-            old.removeAttribute('animation-mixer')
+            old.removeAttribute('animation-mixer');
+            old.removeEventListener('movingended',runaway)
             let old1 = document.querySelector('#s11');
             let old2 = document.querySelector('#s22');
             let old3 = document.querySelector('#s33');
@@ -148,9 +161,45 @@ AFRAME.registerComponent('manager', {
             scene.appendChild(el3);
             $("#battleInfo").text(`After skirmishing along the way, the Federals attacked the camp and scattered the Confederates`)
 
-            createjs.Tween.get(el1.object3D.position).wait(2000).to(pos4, 3000);
-            createjs.Tween.get(el2.object3D.position).wait(2000).to(pos5, 3000);
-            createjs.Tween.get(el3.object3D.position).wait(2000).to(pos6, 3000).call(self.stage2Handler);
+            let track4 = document.createElement('a-curve');
+            track4.setAttribute('id','track4');
+            let track41 = document.createElement('a-curve-point');
+            let track42 = document.createElement('a-curve-point');
+            track41.setAttribute('position',el1.object3D.position);
+            track42.setAttribute('position',pos4);
+            track4.appendChild(track41);
+            track4.appendChild(track42);
+            scene.appendChild(track4);
+
+            let track5 = document.createElement('a-curve');
+            track5.setAttribute('id','track5');
+            let track51 = document.createElement('a-curve-point');
+            let track52 = document.createElement('a-curve-point');
+            track51.setAttribute('position',el2.object3D.position);
+            track52.setAttribute('position',pos5);
+            track5.appendChild(track51);
+            track5.appendChild(track52);
+            scene.appendChild(track5);
+
+            let track6 = document.createElement('a-curve');
+            track6.setAttribute('id','track6');
+            let track61 = document.createElement('a-curve-point');
+            let track62 = document.createElement('a-curve-point');
+            track61.setAttribute('position',el3.object3D.position);
+            track62.setAttribute('position',pos6);
+            track6.appendChild(track61);
+            track6.appendChild(track62);
+            scene.appendChild(track6);
+
+
+            el1.setAttribute('alongpath', {curve: '#track4', dur: 3000, rotate: true, delay:2000});
+            el2.setAttribute('alongpath', {curve: '#track5', dur: 3000, rotate: true, delay:2000});
+            el3.setAttribute('alongpath', {curve: '#track6', dur: 3000, rotate: true, delay:2000});
+            el1.addEventListener('movingended',self.stage2Handler)
+            //
+            // createjs.Tween.get(el1.object3D.position).wait(2000).to(pos4, 3000);
+            // createjs.Tween.get(el2.object3D.position).wait(2000).to(pos5, 3000);
+            // createjs.Tween.get(el3.object3D.position).wait(2000).to(pos6, 3000).call(self.stage2Handler);
         }
 
 
