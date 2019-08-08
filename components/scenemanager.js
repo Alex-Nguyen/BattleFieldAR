@@ -38,7 +38,6 @@ AFRAME.registerComponent('manager', {
         this.fire = document.querySelector('#fire1')
         this.fire.setAttribute('visible','false')
         this.directionV3 = new THREE.Vector3();
-        this.stage1Animation=false;
         this.stage1Handler = this.stage1Handler.bind(this);
         this.stage2Handler = this.stage2Handler.bind(this);
         this.stage3Handler = this.stage3Handler.bind(this);
@@ -54,8 +53,9 @@ AFRAME.registerComponent('manager', {
 
     },
     stage1Handler:function(){
-        this.stage1Animation=true;
-        $('#stage1').addClass('active');
+
+        $('#stage1').removeClass('btn-dark');
+        $('#stage1').addClass('btn-danger active');
         $('#stage2').removeClass('active');
         $('#stage3').removeClass('active');
         $('#stage4').removeClass('active');
@@ -218,7 +218,7 @@ AFRAME.registerComponent('manager', {
 
         },
     stage2Handler:function(){
-        $('#stage1').removeClass('active');
+        $('#stage1').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage3').removeClass('active');
         $('#stage4').removeClass('active');
         $('#stage5').removeClass('active');
@@ -255,19 +255,16 @@ AFRAME.registerComponent('manager', {
             old1.removeAttribute('animation-mixer');
 
         }
-
         let old2 = document.querySelector('#s22');
         if(old2){
             old2.removeAttribute('animation-mixer')
 
         }
-
         let old3 = document.querySelector('#s33');
         if(old3){
             old3.removeAttribute('animation-mixer');
 
         }
-
         let pos3 =document.querySelector('#pos3').object3D.position;
         $("#battleInfo").text(`After the small confrontation at Palmito Ranch, Branson and the Union troops retreated to the hill nearby to rest their troops and animals`)
 
