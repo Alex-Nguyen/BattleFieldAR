@@ -14,6 +14,32 @@ AFRAME.registerComponent('manager', {
         $( "#stage2" ).click(self.stage2Handler);
         $( "#stage3" ).click(self.stage3Handler);
         $( "#stage4" ).click(self.stage4Handler);
+        $("#buttonFullscreen").click(function () {
+            if (!document.fullscreenElement
+                && !document.mozFullScreenElement
+                && !document.webkitFullscreenElement && !document.msFullscreenElement
+            ) {  // current working methods
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.msRequestFullscreen) {
+                    document.documentElement.msRequestFullscreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullscreen) {
+                    document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+            }
+        })
 
 
     },
