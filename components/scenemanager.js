@@ -1,6 +1,7 @@
 AFRAME.registerComponent('manager', {
     init: function () {
         let self = this;
+        this.Stageready = false;
         this.fire = document.querySelector('#fire1');
         this.scene = document.querySelector('a-scene');
 
@@ -16,7 +17,8 @@ AFRAME.registerComponent('manager', {
         $("#stage3").click(self.stage3Handler);
         $("#stage4").click(self.stage4Handler);
         $("#stage5").click(self.stage5Handler);
-        let timeOut =setTimeout(self.stage1Handler, 3000);
+
+        // let timeOut =setTimeout(self.stage1Handler, 3000);
         $("#fullScreen").click(function () {
             if (!document.fullscreenElement
                 && !document.mozFullScreenElement
@@ -43,40 +45,9 @@ AFRAME.registerComponent('manager', {
                 }
             }
         });
-        this.initializeModels();
 
     },
-    initializeModels: function () {
-        let marker1 = document.querySelector('#pos1').object3D.position;
-        let marker2 = document.querySelector('#pos2').object3D.position;
-        let marker3 = document.querySelector('#pos3').object3D.position;
-        let marker4 = document.querySelector('#pos4').object3D.position;
-        let marker5 = document.querySelector('#pos5').object3D.position;
-        let marker6 = document.querySelector('#pos6').object3D.position;
 
-        let s1 = this.create3Dmodel('s1', 'union');
-        s1.object3D.position.x = marker1.x;
-        s1.object3D.position.y = marker1.y;
-        s1.object3D.position.z = marker1.z;
-
-        let t1 = this.create3Dmodel('t1', 'conf');
-        t1.object3D.position.x = marker2.x;
-        t1.object3D.position.y = marker2.y;
-        t1.object3D.position.z = marker2.z;
-
-        let t2 = this.create3Dmodel('t2', 'conf');
-        t2.object3D.position.x = marker2.x - 0.5;
-        t2.object3D.position.y = marker2.y - 0.3;
-        t2.object3D.position.z = marker2.z;
-
-
-        let t3 = this.create3Dmodel('t3', 'conf');
-        t3.object3D.position.x = marker2.x - 0.5;
-        t3.object3D.position.y = marker2.y + 0.3;
-        t3.object3D.position.z = marker2.z;
-
-
-    },
     stage1StartPosition: function () {
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible', 'false');
@@ -85,33 +56,40 @@ AFRAME.registerComponent('manager', {
         $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage4').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
-
-        let s1 = document.querySelector('#s1');
-        let t1 = document.querySelector('#t1');
-        let t2 = document.querySelector('#t2');
-        let t3 = document.querySelector('#t3');
-
         let marker1 = document.querySelector('#pos1').object3D.position;
         let marker2 = document.querySelector('#pos2').object3D.position;
-        let marker3 = document.querySelector('#pos3').object3D.position;
-        let marker4 = document.querySelector('#pos4').object3D.position;
-        let marker5 = document.querySelector('#pos5').object3D.position;
-        let marker6 = document.querySelector('#pos6').object3D.position;
-        s1.object3D.position.x = marker1.x;
-        s1.object3D.position.y = marker1.y;
-        s1.object3D.position.z = marker1.z;
+        //Remove models from markers and append to the scene
 
-        t1.object3D.position.x = marker2.x;
-        t1.object3D.position.y = marker2.y;
-        t1.object3D.position.z = marker2.z;
+        let s1old = document.querySelector('#s1');
+        if(s1old) s1old.parentNode.removeChild(s1old);
+        let s1 = this.create3Dmodel('s1', 'union');
+        this.scene.append(s1);
+        s1.object3D.position.copy(marker1);
 
-        t2.object3D.position.x = marker2.x - 0.5;
-        t2.object3D.position.y = marker2.y - 0.3;
-        t2.object3D.position.z = marker2.z;
+        let t1old = document.querySelector('#t1');
+        if(t1old) t1old.parentNode.removeChild(t1old);
+        let t1 = this.create3Dmodel('t1', 'conf');
+        this.scene.append(t1);
+        t1.object3D.position.copy(marker2);
+        t1.object3D.position.x-=0.4;
 
-        t3.object3D.position.x = marker2.x - 0.5;
-        t3.object3D.position.y = marker2.y + 0.3;
-        t3.object3D.position.z = marker2.z;
+        let t2old = document.querySelector('#t2');
+        if(t2old) t2old.parentNode.removeChild(t2old);
+        let t2 = this.create3Dmodel('t2', 'conf');
+        this.scene.append(t2);
+        t2.object3D.position.copy(marker2);
+        t2.object3D.position.x-=0.4;
+        t2.object3D.position.y+=0.3;
+
+        let t3old = document.querySelector('#t3');
+        if(t3old) t3old.parentNode.removeChild(t3old);
+        let t3 = this.create3Dmodel('t3', 'conf');
+        this.scene.append(t3);
+        t3.object3D.position.copy(marker2);
+        t3.object3D.position.x-=0.4;
+        t3.object3D.position.y-=0.3;
+
+
 
     },
     stage2StartPosition: function () {
@@ -122,32 +100,37 @@ AFRAME.registerComponent('manager', {
         $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage4').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
-        let s1 = document.querySelector('#s1');
-        let t1 = document.querySelector('#t1');
-        let t2 = document.querySelector('#t2');
-        let t3 = document.querySelector('#t3');
-        let marker1 = document.querySelector('#pos1').object3D.position;
+
         let marker2 = document.querySelector('#pos2').object3D.position;
-        let marker3 = document.querySelector('#pos3').object3D.position;
-        let marker4 = document.querySelector('#pos4').object3D.position;
-        let marker5 = document.querySelector('#pos5').object3D.position;
-        let marker6 = document.querySelector('#pos6').object3D.position;
 
-        s1.object3D.position.x = marker2.x + 0.3;
-        s1.object3D.position.y = marker2.y;
-        s1.object3D.position.z = marker2.z;
+        let s1old = document.querySelector('#s1');
+        if(s1old) s1old.parentNode.removeChild(s1old);
+        let s1 = this.create3Dmodel('s1', 'union');
+        this.scene.append(s1);
+        s1.object3D.position.copy(marker2);
 
-        t1.object3D.position.x = marker2.x - 0.5;
-        t1.object3D.position.y = marker2.y;
-        t1.object3D.position.z = marker2.z;
+        let t1old = document.querySelector('#t1');
+        if(t1old) t1old.parentNode.removeChild(t1old);
+        let t1 = this.create3Dmodel('t1', 'conf');
+        this.scene.append(t1);
+        t1.object3D.position.copy(marker2);
+        t1.object3D.position.x-=0.4;
 
-        t2.object3D.position.x = marker2.x - 0.5;
-        t2.object3D.position.y = marker2.y - 0.3;
-        t2.object3D.position.z = marker2.z;
+        let t2old = document.querySelector('#t2');
+        if(t2old) t2old.parentNode.removeChild(t2old);
+        let t2 = this.create3Dmodel('t2', 'conf');
+        this.scene.append(t2);
+        t2.object3D.position.copy(marker2);
+        t2.object3D.position.x-=0.4;
+        t2.object3D.position.y+=0.3;
 
-        t3.object3D.position.x = marker2.x - 0.5;
-        t3.object3D.position.y = marker2.y + 0.3;
-        t3.object3D.position.z = marker2.z;
+        let t3old = document.querySelector('#t3');
+        if(t3old) t3old.parentNode.removeChild(t3old);
+        let t3 = this.create3Dmodel('t3', 'conf');
+        this.scene.append(t3);
+        t3.object3D.position.copy(marker2);
+        t3.object3D.position.x-=0.4;
+        t3.object3D.position.y-=0.3;
 
     },
     stage3StartPosition: function () {
@@ -158,10 +141,7 @@ AFRAME.registerComponent('manager', {
         $('#stage1').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage4').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
-        let s1 = document.querySelector('#s1');
-        let t1 = document.querySelector('#t1');
-        let t2 = document.querySelector('#t2');
-        let t3 = document.querySelector('#t3');
+
         let marker1 = document.querySelector('#pos1').object3D.position;
         let marker2 = document.querySelector('#pos2').object3D.position;
         let marker3 = document.querySelector('#pos3').object3D.position;
@@ -169,21 +149,31 @@ AFRAME.registerComponent('manager', {
         let marker5 = document.querySelector('#pos5').object3D.position;
         let marker6 = document.querySelector('#pos6').object3D.position;
 
-        s1.object3D.position.x = marker2.x;
-        s1.object3D.position.y = marker2.y;
-        s1.object3D.position.z = marker2.z;
+        let s1old = document.querySelector('#s1');
+        if(s1old) s1old.parentNode.removeChild(s1old);
+        let s1 = this.create3Dmodel('s1', 'union');
+        this.scene.append(s1);
+        s1.object3D.position.copy(marker2);
 
-        t1.object3D.position.x = marker4.x;
-        t1.object3D.position.y = marker4.y;
-        t1.object3D.position.z = marker4.z;
+        let t1old = document.querySelector('#t1');
+        if(t1old) t1old.parentNode.removeChild(t1old);
+        let t1 = this.create3Dmodel('t1', 'conf');
+        this.scene.append(t1);
+        t1.object3D.position.copy(marker4);
 
-        t2.object3D.position.x = marker5.x;
-        t2.object3D.position.y = marker5.y;
-        t2.object3D.position.z = marker5.z;
+        let t2old = document.querySelector('#t2');
+        if(t2old) t2old.parentNode.removeChild(t2old);
+        let t2 = this.create3Dmodel('t2', 'conf');
+        this.scene.append(t2);
+        t2.object3D.position.copy(marker5);
 
-        t3.object3D.position.x = marker6.x;
-        t3.object3D.position.y = marker6.y;
-        t3.object3D.position.z = marker6.z;
+
+        let t3old = document.querySelector('#t3');
+        if(t3old) t3old.parentNode.removeChild(t3old);
+        let t3 = this.create3Dmodel('t3', 'conf');
+        this.scene.append(t3);
+        t3.object3D.position.copy(marker6);
+
     },
     stage4StartPosition: function () {
         let fire = document.querySelector('#fire1')
@@ -193,31 +183,36 @@ AFRAME.registerComponent('manager', {
         $('#stage1').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
-        let s1 = document.querySelector('#s1');
-        let t1 = document.querySelector('#t1');
-        let t2 = document.querySelector('#t2');
-        let t3 = document.querySelector('#t3');
-        let marker1 = document.querySelector('#pos1').object3D.position;
-        let marker2 = document.querySelector('#pos2').object3D.position;
+
+
         let marker3 = document.querySelector('#pos3').object3D.position;
         let marker4 = document.querySelector('#pos4').object3D.position;
         let marker5 = document.querySelector('#pos5').object3D.position;
         let marker6 = document.querySelector('#pos6').object3D.position;
-        s1.object3D.position.x = marker3.x;
-        s1.object3D.position.y = marker3.y;
-        s1.object3D.position.z = marker3.z;
+        let s1old = document.querySelector('#s1');
+        if(s1old) s1old.parentNode.removeChild(s1old);
+        let s1 = this.create3Dmodel('s1', 'union');
+        this.scene.append(s1);
+        s1.object3D.position.copy(marker3);
 
-        t1.object3D.position.x = marker4.x;
-        t1.object3D.position.y = marker4.y;
-        t1.object3D.position.z = marker4.z;
+        let t1old = document.querySelector('#t1');
+        if(t1old) t1old.parentNode.removeChild(t1old);
+        let t1 = this.create3Dmodel('t1', 'conf');
+        this.scene.append(t1);
+        t1.object3D.position.copy(marker4);
 
-        t2.object3D.position.x = marker5.x;
-        t2.object3D.position.y = marker5.y;
-        t2.object3D.position.z = marker5.z;
+        let t2old = document.querySelector('#t2');
+        if(t2old) t2old.parentNode.removeChild(t2old);
+        let t2 = this.create3Dmodel('t2', 'conf');
+        this.scene.append(t2);
+        t2.object3D.position.copy(marker5);
 
-        t3.object3D.position.x = marker6.x;
-        t3.object3D.position.y = marker6.y;
-        t3.object3D.position.z = marker6.z;
+
+        let t3old = document.querySelector('#t3');
+        if(t3old) t3old.parentNode.removeChild(t3old);
+        let t3 = this.create3Dmodel('t3', 'conf');
+        this.scene.append(t3);
+        t3.object3D.position.copy(marker6);
     },
     stage5StartPosition:function(){
         let fire = document.querySelector('#fire1')
@@ -237,28 +232,35 @@ AFRAME.registerComponent('manager', {
         $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage1').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage4').removeClass('btn-danger active').addClass('btn-dark');
-        let s1 = document.querySelector('#s1');
-        let t1 = document.querySelector('#t1');
-        let t2 = document.querySelector('#t2');
-        let t3 = document.querySelector('#t3');
 
+        let s1old = document.querySelector('#s1');
+        if(s1old) s1old.parentNode.removeChild(s1old);
+        let s1 = this.create3Dmodel('s1', 'union');
+        this.scene.append(s1);
+        s1.object3D.position.copy(marker3);
 
+        let t1old = document.querySelector('#t1');
+        if(t1old) t1old.parentNode.removeChild(t1old);
+        let t1 = this.create3Dmodel('t1', 'conf');
+        this.scene.append(t1);
+        t1.object3D.position.copy(marker2);
+        t1.object3D.position.x-=0.4;
 
-        s1.object3D.position.x = marker3.x;
-        s1.object3D.position.y = marker3.y;
-        s1.object3D.position.z = marker3.z;
+        let t2old = document.querySelector('#t2');
+        if(t2old) t2old.parentNode.removeChild(t2old);
+        let t2 = this.create3Dmodel('t2', 'conf');
+        this.scene.append(t2);
+        t2.object3D.position.copy(marker2);
+        t2.object3D.position.x-=0.4;
+        t2.object3D.position.y+=0.3;
 
-        t1.object3D.position.x = marker2.x;
-        t1.object3D.position.y = marker2.y;
-        t1.object3D.position.z = marker2.z;
-
-        t2.object3D.position.x = marker2.x - 0.5;
-        t2.object3D.position.y = marker2.y - 0.3;
-        t2.object3D.position.z = marker2.z;
-
-        t3.object3D.position.x = marker2.x - 0.5;
-        t3.object3D.position.y = marker2.y + 0.3;
-        t3.object3D.position.z = marker2.z;
+        let t3old = document.querySelector('#t3');
+        if(t3old) t3old.parentNode.removeChild(t3old);
+        let t3 = this.create3Dmodel('t3', 'conf');
+        this.scene.append(t3);
+        t3.object3D.position.copy(marker2);
+        t3.object3D.position.x-=0.4;
+        t3.object3D.position.y-=0.3;
     },
     removeMarkerModels: function () {
         let u = document.querySelector('#union')
@@ -274,8 +276,6 @@ AFRAME.registerComponent('manager', {
         let el = document.createElement('a-entity');
         el.setAttribute('gltf-model', '#man');
         el.setAttribute('id', id);
-
-
         if (type === 'union') {
             let unionFlag = document.createElement('a-plane');
             unionFlag.setAttribute('src', '#unionFlag');
@@ -294,8 +294,6 @@ AFRAME.registerComponent('manager', {
             confederateFlag.setAttribute('look-at', "[camera]");
             el.appendChild(confederateFlag)
         }
-        let scene = document.querySelector('a-scene');
-        scene.appendChild(el)
         return el;
     },
     stage1Handler: function () {
@@ -320,10 +318,11 @@ AFRAME.registerComponent('manager', {
         s1.addEventListener('movingended', stage1Finish)
 
         function stage1Finish() {
-            let s11 = document.querySelector('#s1');
-            s11.removeEventListener('movingended', stage1Finish);
-            s11.removeAttribute('animation-mixer');
-            s11.removeAttribute('alongpath');
+            let s1old = document.querySelector('#s1');
+            if(s1old) s1old.parentNode.removeChild(s1old);
+            let s1 = self.create3Dmodel('s1', 'union');
+            let marker2 = document.querySelector('#pos2')
+            marker2.append(s1);
             setTimeout(self.stage2Handler,2000);
         }
 
@@ -382,16 +381,28 @@ AFRAME.registerComponent('manager', {
         t3.setAttribute('alongpath', {curve: '#track6', dur: 3000, rotate: true, delay: 200});
         t1.addEventListener('movingended', stage2Finish);
         function stage2Finish() {
-            let t1 = document.querySelector('#t1');
-            let t2 = document.querySelector('#t2');
-            let t3 = document.querySelector('#t3');
-            t1.removeEventListener('movingended', stage2Finish);
-            t1.removeAttribute('animation-mixer');
-            t1.removeAttribute('alongpath');
-            t2.removeAttribute('animation-mixer');
-            t2.removeAttribute('alongpath');
-            t3.removeAttribute('animation-mixer');
-            t3.removeAttribute('alongpath');
+
+            let marker4 = document.querySelector('#pos4');
+            let marker5 = document.querySelector('#pos5');
+            let marker6 = document.querySelector('#pos6');
+            let t1old = document.querySelector('#t1');
+            if(t1old) t1old.parentNode.removeChild(t1old);
+            let t1 = this.create3Dmodel('t1', 'conf');
+            marker4.append(t1);
+
+
+            let t2old = document.querySelector('#t2');
+            if(t2old) t2old.parentNode.removeChild(t2old);
+            let t2 = this.create3Dmodel('t2', 'conf');
+            marker5.append(t2);
+
+
+            let t3old = document.querySelector('#t3');
+            if(t3old) t3old.parentNode.removeChild(t3old);
+            let t3 = this.create3Dmodel('t3', 'conf');
+            marker6.append(t3);
+
+
             setTimeout(self.stage3Handler,2000);
         }
     },
@@ -547,7 +558,7 @@ AFRAME.registerComponent('manager', {
         let flag2 = pos2.visible === true && pos3.visible === true;
         let flag3 = pos2.visible === true;
         let flag4 = pos1.visible === true && pos2.visible === true && pos3.visible === true && pos4.visible === true && pos5.visible === true && pos6.visible === true;
-
+        this.Stageready  = flag1;
         $('#stage1').prop('disabled', !flag1);
         $('#stage2').prop('disabled', !flag2);
         $('#stage3').prop('disabled', !flag3);
