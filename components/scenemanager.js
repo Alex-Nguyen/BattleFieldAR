@@ -292,6 +292,7 @@ AFRAME.registerComponent('manager', {
     },
     stage2Handler: function () {
         this.stage2StartPosition();
+        let self = this;
         let t1 = document.querySelector('#t1');
         let t2 = document.querySelector('#t2');
         let t3 = document.querySelector('#t3');
@@ -352,6 +353,7 @@ AFRAME.registerComponent('manager', {
     },
     stage3Handler: function () {
         this.stage3StartPosition();
+        let self = this;
         let s1 = document.querySelector('#s1');
         s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
         let track7 = document.createElement('a-curve');
@@ -379,6 +381,7 @@ AFRAME.registerComponent('manager', {
     },
     stage4Handler: function () {
         this.stage4StartPosition();
+        let self = this;
         let t1 = document.querySelector('#t1');
         let t2 = document.querySelector('#t2');
         let t3 = document.querySelector('#t3');
