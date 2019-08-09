@@ -16,6 +16,7 @@ AFRAME.registerComponent('manager', {
         $("#stage3").click(self.stage3Handler);
         $("#stage4").click(self.stage4Handler);
         $("#stage5").click(self.stage5Handler);
+        let timeOut =setTimeout(self.stage1Handler, 3000);
         $("#fullScreen").click(function () {
             if (!document.fullscreenElement
                 && !document.mozFullScreenElement
@@ -73,10 +74,7 @@ AFRAME.registerComponent('manager', {
         t3.object3D.position.x = marker2.x - 0.5;
         t3.object3D.position.y = marker2.y + 0.3;
         t3.object3D.position.z = marker2.z;
-        this.scene.appendChild(s1);
-        this.scene.appendChild(t1);
-        this.scene.appendChild(t2);
-        this.scene.appendChild(t3);
+
 
     },
     stage1StartPosition: function () {

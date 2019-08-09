@@ -67,10 +67,25 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="532" selection-start-line="532" selection-end-line="532" />
+            <state relative-caret-position="506">
+              <caret line="78" column="6" lean-forward="true" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
               <folding>
+                <element signature="e#1276#2604#0" />
+                <element signature="e#2681#3511#0" />
+                <element signature="e#3550#4846#0" />
+                <element signature="e#4885#6192#0" />
+                <element signature="e#6231#7501#0" />
+                <element signature="e#7540#8810#0" />
+                <element signature="e#8846#10293#0" />
+                <element signature="e#10331#10570#0" />
+                <element signature="e#10611#11721#0" />
+                <element signature="e#10780#11171#0" />
+                <element signature="e#11754#13006#0" />
+                <element signature="e#13039#15839#0" />
                 <element signature="e#15264#15833#0" />
+                <element signature="e#15872#17115#0" />
+                <element signature="e#17148#20220#0" />
+                <element signature="e#20250#21327#0" />
                 <element signature="e#21366#22324#0" />
               </folding>
             </state>
@@ -262,12 +277,12 @@
       <workItem from="1565206129437" duration="1525000" />
       <workItem from="1565231508062" duration="18699000" />
       <workItem from="1565295778067" duration="16351000" />
-      <workItem from="1565375968208" duration="927000" />
+      <workItem from="1565375968208" duration="1145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93911000" />
+    <option name="totallyTimeSpent" value="94129000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -400,10 +415,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="532" selection-start-line="532" selection-end-line="532" />
+        <state relative-caret-position="506">
+          <caret line="78" column="6" lean-forward="true" selection-start-line="78" selection-start-column="6" selection-end-line="78" selection-end-column="6" />
           <folding>
+            <element signature="e#1276#2604#0" />
+            <element signature="e#2681#3511#0" />
+            <element signature="e#3550#4846#0" />
+            <element signature="e#4885#6192#0" />
+            <element signature="e#6231#7501#0" />
+            <element signature="e#7540#8810#0" />
+            <element signature="e#8846#10293#0" />
+            <element signature="e#10331#10570#0" />
+            <element signature="e#10611#11721#0" />
+            <element signature="e#10780#11171#0" />
+            <element signature="e#11754#13006#0" />
+            <element signature="e#13039#15839#0" />
             <element signature="e#15264#15833#0" />
+            <element signature="e#15872#17115#0" />
+            <element signature="e#17148#20220#0" />
+            <element signature="e#20250#21327#0" />
             <element signature="e#21366#22324#0" />
           </folding>
         </state>
