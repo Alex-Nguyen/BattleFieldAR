@@ -18,7 +18,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libs/apps.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3674">
+            <state relative-caret-position="1340">
               <caret line="167" column="14" selection-start-line="167" selection-start-column="14" selection-end-line="167" selection-end-column="14" />
             </state>
           </provider>
@@ -27,11 +27,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="47" column="76" selection-start-line="47" selection-start-column="76" selection-end-line="47" selection-end-column="76" />
+            <state relative-caret-position="535">
+              <caret line="73" column="26" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#a-scene#0;n#body#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -62,13 +61,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-484">
-              <caret line="177" column="12" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="12" />
+            <state relative-caret-position="264">
+              <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
               <folding>
-                <element signature="e#61#722#0" />
                 <element signature="e#154#186#0" />
                 <element signature="e#2389#2405#0" />
-                <element signature="e#10525#12240#0" />
                 <element signature="e#12286#13194#0" />
               </folding>
             </state>
@@ -257,12 +254,12 @@
       <workItem from="1565122032361" duration="4686000" />
       <workItem from="1565206129437" duration="1525000" />
       <workItem from="1565231508062" duration="18699000" />
-      <workItem from="1565295778067" duration="8385000" />
+      <workItem from="1565295778067" duration="9421000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85018000" />
+    <option name="totallyTimeSpent" value="86054000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -302,13 +299,6 @@
     <entry file="file://$PROJECT_DIR$/aframe.html" />
     <entry file="file://$PROJECT_DIR$/data/CesiumMan.glb">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/apps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3674">
-          <caret line="167" column="14" selection-start-line="167" selection-start-column="14" selection-end-line="167" selection-end-column="14" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/CesiumMan.gltf">
       <provider selected="true" editor-type-id="text-editor">
@@ -377,26 +367,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/libs/apps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1340">
+          <caret line="167" column="14" selection-start-line="167" selection-start-column="14" selection-end-line="167" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="47" column="76" selection-start-line="47" selection-start-column="76" selection-end-line="47" selection-end-column="76" />
+        <state relative-caret-position="535">
+          <caret line="73" column="26" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#a-scene#0;n#body#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-484">
-          <caret line="177" column="12" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="12" />
+        <state relative-caret-position="264">
+          <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
           <folding>
-            <element signature="e#61#722#0" />
             <element signature="e#154#186#0" />
             <element signature="e#2389#2405#0" />
-            <element signature="e#10525#12240#0" />
             <element signature="e#12286#13194#0" />
           </folding>
         </state>
