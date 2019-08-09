@@ -407,12 +407,7 @@ AFRAME.registerComponent('manager', {
             old1.removeAttribute('animation-mixer');
             old2.removeAttribute('animation-mixer');
             old3.removeAttribute('animation-mixer');
-            let old = document.querySelector('#s1');
-            if (old) {
-                old.parentNode.removeChild(old);
-
-            }
-
+           
             let el = document.querySelector('#s1');
             el.setAttribute('animation-mixer', {clip: 'mixamo.com'})
             let pos3 = document.querySelector('#pos3').object3D.position;
