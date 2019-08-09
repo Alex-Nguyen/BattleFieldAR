@@ -46,7 +46,7 @@ AFRAME.registerComponent('manager', {
                     document.webkitExitFullscreen();
                 }
             }
-        })
+        });
         this.initializeModels();
 
     },
@@ -448,6 +448,7 @@ AFRAME.registerComponent('manager', {
     stage5Handler:function(){
         this.stage5StartPosition();
         let s1 = document.querySelector('#s1');
+        s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
         let track11 = document.createElement('a-curve');
         track11.setAttribute('id', 'track11');
         let curvePoint111 = document.createElement('a-curve-point');
