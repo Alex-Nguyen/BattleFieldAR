@@ -322,7 +322,7 @@ AFRAME.registerComponent('manager', {
             if(s1old) s1old.parentNode.removeChild(s1old);
             let s1 = self.create3Dmodel('s1', 'union');
             let marker2 = document.querySelector('#pos2')
-            marker2.append(s1);
+            marker2.appendChild(s1);
             setTimeout(self.stage2Handler,2000);
         }
 
@@ -388,19 +388,19 @@ AFRAME.registerComponent('manager', {
             let t1old = document.querySelector('#t1');
             if(t1old) t1old.parentNode.removeChild(t1old);
             let t1 = this.create3Dmodel('t1', 'conf');
-            marker4.append(t1);
+            marker4.appendChild(t1);
 
 
             let t2old = document.querySelector('#t2');
             if(t2old) t2old.parentNode.removeChild(t2old);
             let t2 = this.create3Dmodel('t2', 'conf');
-            marker5.append(t2);
+            marker5.appendChild(t2);
 
 
             let t3old = document.querySelector('#t3');
             if(t3old) t3old.parentNode.removeChild(t3old);
             let t3 = this.create3Dmodel('t3', 'conf');
-            marker6.append(t3);
+            marker6.appendChild(t3);
 
 
             setTimeout(self.stage3Handler,2000);
@@ -431,12 +431,17 @@ AFRAME.registerComponent('manager', {
         s1.setAttribute('alongpath', {curve: '#track7', dur: 3000, rotate: true, delay: 2000});
         s1.addEventListener('movingended', stage3Finished)
         function stage3Finished() {
-            let s11 = document.querySelector('#s1');
-            s11.removeEventListener('movingended', stage3Finished);
-            s11.removeAttribute('animation-mixer');
-            s11.removeAttribute('alongpath');
-            let fire = document.querySelector('#fire1')
+            let s1old = document.querySelector('#s1');
+            if(s1old) s1old.parentNode.removeChild(s1old);
+            let s1 = self.create3Dmodel('s1', 'union');
+            let marker2 = document.querySelector('#pos2');
+            let marker3 = document.querySelector('#pos3');
+            marker3.appendChild(s1);
+            let fire = document.querySelector('#fire1');
+            fire.object3D.position.copy(marker2.object3D.position);
             fire.setAttribute('visible', 'true');
+
+
             $("#battleInfo").text(`The Union took Palmito Ranch, burning any supplies that they found abandoned at the camp, and capturing three prisoners`);
 
             setTimeout(self.stage4Handler,2000);
@@ -502,17 +507,24 @@ AFRAME.registerComponent('manager', {
         t3.setAttribute('alongpath', {curve: '#track10', dur: 3000, rotate: true, delay: 2000});
         t1.addEventListener('movingended', stage4Finished)
         function stage4Finished() {
-            let t1 = document.querySelector('#t1');
-            let t2 = document.querySelector('#t2');
-            let t3 = document.querySelector('#t3');
+            let marker2 = document.querySelector('#pos2');
 
-            t1.removeEventListener('movingended', stage4Finished);
-            t1.removeAttribute('animation-mixer');
-            t1.removeAttribute('alongpath');
-            t2.removeAttribute('animation-mixer');
-            t2.removeAttribute('alongpath');
-            t3.removeAttribute('animation-mixer');
-            t3.removeAttribute('alongpath');
+            let t1old = document.querySelector('#t1');
+            if(t1old) t1old.parentNode.removeChild(t1old);
+            let t1 = this.create3Dmodel('t1', 'conf');
+            marker2.appendChild(t1);
+
+
+            let t2old = document.querySelector('#t2');
+            if(t2old) t2old.parentNode.removeChild(t2old);
+            let t2 = this.create3Dmodel('t2', 'conf');
+            marker2.appendChild(t2);
+
+
+            let t3old = document.querySelector('#t3');
+            if(t3old) t3old.parentNode.removeChild(t3old);
+            let t3 = this.create3Dmodel('t3', 'conf');
+            marker2.appendChild(t3);
             setTimeout(self.stage5Handler,2000);
         }
 
