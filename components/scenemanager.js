@@ -224,9 +224,16 @@ AFRAME.registerComponent('manager', {
     stage5StartPosition:function(){
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible', 'false');
-        fire.object3D.position.x = this.marker2.x;
-        fire.object3D.position.y = this.marker2.y;
-        fire.object3D.position.z = this.marker2.z;
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
+
+        fire.object3D.position.x = marker2.x;
+        fire.object3D.position.y = marker2.y;
+        fire.object3D.position.z = marker2.z;
         $('#stage5').removeClass('btn-dark').addClass('btn-danger active');
         $('#stage2').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
@@ -237,12 +244,7 @@ AFRAME.registerComponent('manager', {
         let t2 = document.querySelector('#t2');
         let t3 = document.querySelector('#t3');
 
-        let marker1 = document.querySelector('#pos1').object3D.position;
-        let marker2 = document.querySelector('#pos2').object3D.position;
-        let marker3 = document.querySelector('#pos3').object3D.position;
-        let marker4 = document.querySelector('#pos4').object3D.position;
-        let marker5 = document.querySelector('#pos5').object3D.position;
-        let marker6 = document.querySelector('#pos6').object3D.position;
+
 
         s1.object3D.position.x = marker3.x;
         s1.object3D.position.y = marker3.y;
@@ -375,6 +377,7 @@ AFRAME.registerComponent('manager', {
         track6.appendChild(track61);
         track6.appendChild(track62);
         this.scene.appendChild(track6);
+        $("#battleInfo").text(`After skirmishing along the way, the Federals attacked the camp and scattered the Confederates`)
 
         t1.setAttribute('alongpath', {curve: '#track4', dur: 3000, rotate: true, delay: 2000});
         t2.setAttribute('alongpath', {curve: '#track5', dur: 3000, rotate: true, delay: 2000});
@@ -414,6 +417,8 @@ AFRAME.registerComponent('manager', {
         track7.appendChild(curvePoint1);
         track7.appendChild(curvePoint2);
         this.scene.appendChild(track7);
+        $("#battleInfo").text(`After the small confrontation at Palmito Ranch, Branson and the Union troops retreated to the hill nearby to rest their troops and animals`)
+
         s1.setAttribute('alongpath', {curve: '#track7', dur: 3000, rotate: true, delay: 2000});
         s1.addEventListener('movingended', stage3Finished)
         function stage3Finished() {
@@ -423,6 +428,8 @@ AFRAME.registerComponent('manager', {
             s11.removeAttribute('alongpath');
             let fire = document.querySelector('#fire1')
             fire.setAttribute('visible', 'true');
+            $("#battleInfo").text(`The Union took Palmito Ranch, burning any supplies that they found abandoned at the camp, and capturing three prisoners`);
+
             setTimeout(self.stage4Handler,2000);
 
         }
@@ -479,6 +486,7 @@ AFRAME.registerComponent('manager', {
         track10.appendChild(track101);
         track10.appendChild(track102);
         this.scene.appendChild(track10);
+        $("#battleInfo").html("At 3pm, the Confederates came with reinforcements");
 
         t1.setAttribute('alongpath', {curve: '#track8', dur: 3000, rotate: true, delay: 2000});
         t2.setAttribute('alongpath', {curve: '#track9', dur: 3000, rotate: true, delay: 2000});
@@ -521,6 +529,7 @@ AFRAME.registerComponent('manager', {
         this.scene.appendChild(track11);
         s1.setAttribute('alongpath', {curve: '#track11', dur: 3000, rotate: true, delay: 2000});
         s1.addEventListener('movingended', stage5Finished)
+        $("#battleInfo").html("Federals retreated to White’s Ranch.");
 
         function stage5Finished() {
             let s1 = document.querySelector('#s1');

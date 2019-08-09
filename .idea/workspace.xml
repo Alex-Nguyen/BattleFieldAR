@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/confederate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9328">
-              <caret line="561" column="13" lean-forward="true" selection-start-line="554" selection-start-column="11" selection-end-line="561" selection-end-column="13" />
+            <state relative-caret-position="160">
+              <caret line="526" column="38" lean-forward="true" selection-start-line="526" selection-end-line="527" />
               <folding>
                 <element signature="e#1110#2438#0" />
                 <element signature="e#2512#3327#0" />
@@ -67,8 +67,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="517" column="47" selection-start-line="517" selection-start-column="47" selection-end-line="517" selection-end-column="47" />
+            <state relative-caret-position="482">
+              <caret line="532" selection-start-line="532" selection-end-line="532" />
+              <folding>
+                <element signature="e#15264#15833#0" />
+                <element signature="e#21366#22324#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,6 +155,8 @@
       <find>create</find>
       <find>markerControls2</find>
       <find>animations</find>
+      <find>fire</find>
+      <find>this.marker</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -256,12 +262,12 @@
       <workItem from="1565206129437" duration="1525000" />
       <workItem from="1565231508062" duration="18699000" />
       <workItem from="1565295778067" duration="16351000" />
-      <workItem from="1565375968208" duration="561000" />
+      <workItem from="1565375968208" duration="927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93545000" />
+    <option name="totallyTimeSpent" value="93911000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -306,23 +312,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3674">
           <caret line="167" column="14" selection-start-line="167" selection-start-column="14" selection-end-line="167" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/confederate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9328">
-          <caret line="561" column="13" lean-forward="true" selection-start-line="554" selection-start-column="11" selection-end-line="561" selection-end-column="13" />
-          <folding>
-            <element signature="e#1110#2438#0" />
-            <element signature="e#2512#3327#0" />
-            <element signature="e#5812#6983#0" />
-            <element signature="e#7019#8207#0" />
-            <element signature="e#8245#8484#0" />
-            <element signature="e#8525#9635#0" />
-            <element signature="e#8694#9085#0" />
-            <element signature="e#24901#25812#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -392,10 +381,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/confederate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="526" column="38" lean-forward="true" selection-start-line="526" selection-end-line="527" />
+          <folding>
+            <element signature="e#1110#2438#0" />
+            <element signature="e#2512#3327#0" />
+            <element signature="e#5812#6983#0" />
+            <element signature="e#7019#8207#0" />
+            <element signature="e#8245#8484#0" />
+            <element signature="e#8525#9635#0" />
+            <element signature="e#8694#9085#0" />
+            <element signature="e#24901#25812#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="517" column="47" selection-start-line="517" selection-start-column="47" selection-end-line="517" selection-end-column="47" />
+        <state relative-caret-position="482">
+          <caret line="532" selection-start-line="532" selection-end-line="532" />
+          <folding>
+            <element signature="e#15264#15833#0" />
+            <element signature="e#21366#22324#0" />
+          </folding>
         </state>
       </provider>
     </entry>
