@@ -117,7 +117,7 @@ AFRAME.registerComponent('manager', {
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible', 'false')
         let self = this;
-        self.removeExistingModel();
+
 
         let el = this.create3Dmodel('s1','union');
 
@@ -154,7 +154,7 @@ AFRAME.registerComponent('manager', {
         let curvePoint1 = document.createElement('a-curve-point');
         let curvePoint2 = document.createElement('a-curve-point');
         curvePoint1.setAttribute('position', el.object3D.position);
-        curvePoint2.setAttribute('position', pos2);
+        curvePoint2.setAttribute('position', pos2.position);
         curve.appendChild(curvePoint1);
         curve.appendChild(curvePoint2);
         scene.appendChild(curve);
@@ -231,7 +231,7 @@ AFRAME.registerComponent('manager', {
         let self = this;
 
 
-        let el = document.querySelector('#s1')
+        let el = document.querySelector('#s1');
         let pos2 = document.querySelector('#pos2').object3D.position;
         el.object3D.position.x = pos2.x;
         el.object3D.position.y = pos2.y;
