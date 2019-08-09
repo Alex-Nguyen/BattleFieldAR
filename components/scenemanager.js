@@ -378,7 +378,7 @@ AFRAME.registerComponent('manager', {
 
         t1.setAttribute('alongpath', {curve: '#track4', dur: 3000, rotate: true, delay: 2000});
         t2.setAttribute('alongpath', {curve: '#track5', dur: 3000, rotate: true, delay: 2000});
-        t3.setAttribute('alongpath', {curve: '#track6', dur: 3000, rotate: true, delay: 200});
+        t3.setAttribute('alongpath', {curve: '#track6', dur: 3000, rotate: true, delay: 2000});
         t1.addEventListener('movingended', stage2Finish);
         function stage2Finish() {
 
@@ -387,19 +387,19 @@ AFRAME.registerComponent('manager', {
             let marker6 = document.querySelector('#pos6');
             let t1old = document.querySelector('#t1');
             if(t1old) t1old.parentNode.removeChild(t1old);
-            let t1 = this.create3Dmodel('t1', 'conf');
+            let t1 = self.create3Dmodel('t1', 'conf');
             marker4.appendChild(t1);
 
 
             let t2old = document.querySelector('#t2');
             if(t2old) t2old.parentNode.removeChild(t2old);
-            let t2 = this.create3Dmodel('t2', 'conf');
+            let t2 = self.create3Dmodel('t2', 'conf');
             marker5.appendChild(t2);
 
 
             let t3old = document.querySelector('#t3');
             if(t3old) t3old.parentNode.removeChild(t3old);
-            let t3 = this.create3Dmodel('t3', 'conf');
+            let t3 = self.create3Dmodel('t3', 'conf');
             marker6.appendChild(t3);
 
 
@@ -408,13 +408,14 @@ AFRAME.registerComponent('manager', {
     },
     stage3Handler: function () {
         this.stage3StartPosition();
+        let self = this;
         let marker1 = document.querySelector('#pos1').object3D.position;
         let marker2 = document.querySelector('#pos2').object3D.position;
         let marker3 = document.querySelector('#pos3').object3D.position;
         let marker4 = document.querySelector('#pos4').object3D.position;
         let marker5 = document.querySelector('#pos5').object3D.position;
         let marker6 = document.querySelector('#pos6').object3D.position;
-        let self = this;
+
         let s1 = document.querySelector('#s1');
         s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
         let track7 = document.createElement('a-curve');
@@ -511,19 +512,19 @@ AFRAME.registerComponent('manager', {
 
             let t1old = document.querySelector('#t1');
             if(t1old) t1old.parentNode.removeChild(t1old);
-            let t1 = this.create3Dmodel('t1', 'conf');
+            let t1 = self.create3Dmodel('t1', 'conf');
             marker2.appendChild(t1);
 
 
             let t2old = document.querySelector('#t2');
             if(t2old) t2old.parentNode.removeChild(t2old);
-            let t2 = this.create3Dmodel('t2', 'conf');
+            let t2 = self.create3Dmodel('t2', 'conf');
             marker2.appendChild(t2);
 
 
             let t3old = document.querySelector('#t3');
             if(t3old) t3old.parentNode.removeChild(t3old);
-            let t3 = this.create3Dmodel('t3', 'conf');
+            let t3 = self.create3Dmodel('t3', 'conf');
             marker2.appendChild(t3);
             setTimeout(self.stage5Handler,2000);
         }
