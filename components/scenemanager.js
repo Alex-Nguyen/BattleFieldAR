@@ -62,7 +62,7 @@ AFRAME.registerComponent('manager', {
         let el = document.createElement('a-entity');
         el.setAttribute('gltf-model', '#man');
         el.setAttribute('id', id);
-        el.setAttribute('animation-mixer', {clip: 'mixamo.com'})
+
 
         if (type === 'union') {
             let unionFlag = document.createElement('a-plane');
@@ -103,7 +103,7 @@ AFRAME.registerComponent('manager', {
 
 
         let el = this.create3Dmodel('s1','union');
-
+        el.setAttribute('animation-mixer', {clip: 'mixamo.com'})
 
         let pos1 = document.querySelector('#pos1').object3D;
         let pos2 = document.querySelector('#pos2').object3D;
@@ -155,8 +155,11 @@ AFRAME.registerComponent('manager', {
             let pos5 = document.querySelector('#pos5').object3D.position;
             let pos6 = document.querySelector('#pos6').object3D.position;
             let el1 = document.querySelector('#s11');
+            el1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
             let el2 = document.querySelector('#s22');
+            el2.setAttribute('animation-mixer', {clip: 'mixamo.com'})
             let el3 = document.querySelector('#s33');
+            el3.setAttribute('animation-mixer', {clip: 'mixamo.com'})
 
 
             $("#battleInfo").text(`After skirmishing along the way, the Federals attacked the camp and scattered the Confederates`)
@@ -207,7 +210,9 @@ AFRAME.registerComponent('manager', {
         $('#stage4').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage2').removeClass('btn-dark').addClass('btn-danger active');
-
+        let pos4 = document.querySelector('#pos4').object3D.position;
+        let pos5 = document.querySelector('#pos5').object3D.position;
+        let pos6 = document.querySelector('#pos6').object3D.position;
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible', 'false')
         let scene = document.querySelector('a-scene');
@@ -222,16 +227,25 @@ AFRAME.registerComponent('manager', {
 
         let old1 = document.querySelector('#s11');
         if (old1) {
+            old1.object3D.position.x = pos4.x;
+            old1.object3D.position.y = pos4.y;
+            old1.object3D.position.z = pos4.z;
             old1.removeAttribute('animation-mixer');
 
         }
         let old2 = document.querySelector('#s22');
         if (old2) {
+            old2.object3D.position.x = pos5.x;
+            old2.object3D.position.y = pos5.y;
+            old2.object3D.position.z = pos5.z;
             old2.removeAttribute('animation-mixer')
 
         }
         let old3 = document.querySelector('#s33');
         if (old3) {
+            old3.object3D.position.x = pos6.x;
+            old3.object3D.position.y = pos6.y;
+            old3.object3D.position.z = pos6.z;
             old3.removeAttribute('animation-mixer');
 
         }
@@ -253,21 +267,56 @@ AFRAME.registerComponent('manager', {
     stage3Handler: function () {
         $('#stage3').addClass('btn-danger active').removeClass('btn-dark')
         $('#stage2').addClass('btn-dark').removeClass('btn-danger active');
-
-
         $('#stage1').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage4').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
+
+
         let self = this;
-        let s1 = document.querySelector('#s1');
-        s1.removeAttribute('animation-mixer');
-        s1.removeEventListener('movingended', self.stage3Handler);
+        let el = document.querySelector('#s1');
+        el.removeAttribute('animation-mixer');
+        el.removeEventListener('movingended', self.stage3Handler);
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible', 'true')
         let pos2 = document.querySelector('#pos2').object3D.position;
         fire.object3D.position.x = pos2.x;
         fire.object3D.position.y = pos2.y;
         fire.object3D.position.z = pos2.z;
+
+        let pos3 = document.querySelector('#pos3').object3D.position;
+        el.object3D.position.x = pos3.x;
+        el.object3D.position.y = pos3.y;
+        el.object3D.position.z = pos3.z;
+
+
+        let pos4 = document.querySelector('#pos4').object3D.position;
+        let pos5 = document.querySelector('#pos5').object3D.position;
+        let pos6 = document.querySelector('#pos6').object3D.position;
+        let old1 = document.querySelector('#s11');
+        if (old1) {
+            old1.object3D.position.x = pos4.x;
+            old1.object3D.position.y = pos4.y;
+            old1.object3D.position.z = pos4.z;
+            old1.removeAttribute('animation-mixer');
+
+        }
+        let old2 = document.querySelector('#s22');
+        if (old2) {
+            old2.object3D.position.x = pos5.x;
+            old2.object3D.position.y = pos5.y;
+            old2.object3D.position.z = pos5.z;
+            old2.removeAttribute('animation-mixer')
+
+        }
+        let old3 = document.querySelector('#s33');
+        if (old3) {
+            old3.object3D.position.x = pos6.x;
+            old3.object3D.position.y = pos6.y;
+            old3.object3D.position.z = pos6.z;
+            old3.removeAttribute('animation-mixer');
+
+        }
+
         $("#battleInfo").text(`The Union took Palmito Ranch, burning any supplies that they found abandoned at the camp, and capturing three prisoners`);
         setTimeout(self.stage4Handler, 2000);
     },
@@ -287,7 +336,7 @@ AFRAME.registerComponent('manager', {
         let pos6 = document.querySelector('#pos6').object3D.position;
 
         let el1 = document.querySelector('#s11');
-
+        el1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
         el1.object3D.position.x = pos4.x;
         el1.object3D.position.y = pos4.y;
         el1.object3D.position.z = pos4.z;
@@ -295,12 +344,14 @@ AFRAME.registerComponent('manager', {
 
 
         let el2 = document.querySelector('#s22');
+        el2.setAttribute('animation-mixer', {clip: 'mixamo.com'})
         el2.object3D.position.x = pos5.x;
         el2.object3D.position.y = pos5.y;
         el2.object3D.position.z = pos5.z;
 
 
         let el3 = document.querySelector('#s33');
+        el3.setAttribute('animation-mixer', {clip: 'mixamo.com'})
         el3.object3D.position.x = pos6.x;
         el3.object3D.position.y = pos6.y;
         el3.object3D.position.z = pos6.z;
@@ -360,26 +411,14 @@ AFRAME.registerComponent('manager', {
 
             }
 
-            let el = document.createElement('a-entity');
-            el.setAttribute('gltf-model', '#man');
-            el.setAttribute('id', 's1');
+            let el = document.querySelector('#s1');
             el.setAttribute('animation-mixer', {clip: 'mixamo.com'})
             let pos3 = document.querySelector('#pos3').object3D.position;
             el.object3D.position.x = pos3.x;
             el.object3D.position.y = pos3.y;
             el.object3D.position.z = pos3.z;
-            let unionFlag = document.createElement('a-plane');
-            unionFlag.setAttribute('src', '#unionFlag');
-            unionFlag.setAttribute('height', "0.8");
-            unionFlag.setAttribute('width', "1.2");
-            unionFlag.setAttribute('position', "0 2 0");
-            unionFlag.setAttribute('look-at', "[camera]");
-            el.appendChild(unionFlag)
-            scene.appendChild(el);
 
             let pos1 = document.querySelector('#pos1').object3D.position;
-
-
             let track11 = document.createElement('a-curve');
             track11.setAttribute('id', 'track11');
             let curvePoint111 = document.createElement('a-curve-point');
