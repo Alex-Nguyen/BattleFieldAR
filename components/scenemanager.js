@@ -10,12 +10,7 @@ AFRAME.registerComponent('manager', {
         this.stage3Handler = this.stage3Handler.bind(this);
         this.stage4Handler = this.stage4Handler.bind(this);
         this.stage5Handler = this.stage5Handler.bind(this);
-        this.marker1 = document.querySelector('#pos1').object3D.position;
-        this.marker2 = document.querySelector('#pos2').object3D.position;
-        this.marker3 = document.querySelector('#pos3').object3D.position;
-        this.marker4 = document.querySelector('#pos4').object3D.position;
-        this.marker5 = document.querySelector('#pos5').object3D.position;
-        this.marker6 = document.querySelector('#pos6').object3D.position;
+
         $("#stage1").click(self.stage1Handler);
         $("#stage2").click(self.stage2Handler);
         $("#stage3").click(self.stage3Handler);
@@ -51,27 +46,37 @@ AFRAME.registerComponent('manager', {
 
     },
     initializeModels: function () {
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
 
         let s1 = this.create3Dmodel('s1', 'union');
-        s1.object3D.position.x = this.marker1.x;
-        s1.object3D.position.y = this.marker1.y;
-        s1.object3D.position.z = this.marker1.z;
+        s1.object3D.position.x = marker1.x;
+        s1.object3D.position.y = marker1.y;
+        s1.object3D.position.z = marker1.z;
 
         let t1 = this.create3Dmodel('t1', 'conf');
-        t1.object3D.position.x = this.marker2.x;
-        t1.object3D.position.y = this.marker2.y;
-        t1.object3D.position.z = this.marker2.z;
+        t1.object3D.position.x = marker2.x;
+        t1.object3D.position.y = marker2.y;
+        t1.object3D.position.z = marker2.z;
 
         let t2 = this.create3Dmodel('t2', 'conf');
-        t2.object3D.position.x = this.marker2.x - 0.5;
-        t2.object3D.position.y = this.marker2.y - 0.3;
-        t2.object3D.position.z = this.marker2.z;
+        t2.object3D.position.x = marker2.x - 0.5;
+        t2.object3D.position.y = marker2.y - 0.3;
+        t2.object3D.position.z = marker2.z;
 
 
         let t3 = this.create3Dmodel('t3', 'conf');
-        t3.object3D.position.x = this.marker2.x - 0.5;
-        t3.object3D.position.y = this.marker2.y + 0.3;
-        t3.object3D.position.z = this.marker2.z;
+        t3.object3D.position.x = marker2.x - 0.5;
+        t3.object3D.position.y = marker2.y + 0.3;
+        t3.object3D.position.z = marker2.z;
+        this.scene.appendChild(s1);
+        this.scene.appendChild(t1);
+        this.scene.appendChild(t2);
+        this.scene.appendChild(t3);
 
     },
     stage1StartPosition: function () {
@@ -88,21 +93,27 @@ AFRAME.registerComponent('manager', {
         let t2 = document.querySelector('#t2');
         let t3 = document.querySelector('#t3');
 
-        s1.object3D.position.x = this.marker1.x;
-        s1.object3D.position.y = this.marker1.y;
-        s1.object3D.position.z = this.marker1.z;
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
+        s1.object3D.position.x = marker1.x;
+        s1.object3D.position.y = marker1.y;
+        s1.object3D.position.z = marker1.z;
 
-        t1.object3D.position.x = this.marker2.x;
-        t1.object3D.position.y = this.marker2.y;
-        t1.object3D.position.z = this.marker2.z;
+        t1.object3D.position.x = marker2.x;
+        t1.object3D.position.y = marker2.y;
+        t1.object3D.position.z = marker2.z;
 
-        t2.object3D.position.x = this.marker2.x - 0.5;
-        t2.object3D.position.y = this.marker2.y - 0.3;
-        t2.object3D.position.z = this.marker2.z;
+        t2.object3D.position.x = marker2.x - 0.5;
+        t2.object3D.position.y = marker2.y - 0.3;
+        t2.object3D.position.z = marker2.z;
 
-        t3.object3D.position.x = this.marker2.x - 0.5;
-        t3.object3D.position.y = this.marker2.y + 0.3;
-        t3.object3D.position.z = this.marker2.z;
+        t3.object3D.position.x = marker2.x - 0.5;
+        t3.object3D.position.y = marker2.y + 0.3;
+        t3.object3D.position.z = marker2.z;
 
     },
     stage2StartPosition: function () {
@@ -117,22 +128,28 @@ AFRAME.registerComponent('manager', {
         let t1 = document.querySelector('#t1');
         let t2 = document.querySelector('#t2');
         let t3 = document.querySelector('#t3');
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
 
-        s1.object3D.position.x = this.marker2.x + 0.3;
-        s1.object3D.position.y = this.marker2.y;
-        s1.object3D.position.z = this.marker2.z;
+        s1.object3D.position.x = marker2.x + 0.3;
+        s1.object3D.position.y = marker2.y;
+        s1.object3D.position.z = marker2.z;
 
-        t1.object3D.position.x = this.marker2.x - 0.5;
-        t1.object3D.position.y = this.marker2.y;
-        t1.object3D.position.z = this.marker2.z;
+        t1.object3D.position.x = marker2.x - 0.5;
+        t1.object3D.position.y = marker2.y;
+        t1.object3D.position.z = marker2.z;
 
-        t2.object3D.position.x = this.marker2.x - 0.5;
-        t2.object3D.position.y = this.marker2.y - 0.3;
-        t2.object3D.position.z = this.marker2.z;
+        t2.object3D.position.x = marker2.x - 0.5;
+        t2.object3D.position.y = marker2.y - 0.3;
+        t2.object3D.position.z = marker2.z;
 
-        t3.object3D.position.x = this.marker2.x - 0.5;
-        t3.object3D.position.y = this.marker2.y + 0.3;
-        t3.object3D.position.z = this.marker2.z;
+        t3.object3D.position.x = marker2.x - 0.5;
+        t3.object3D.position.y = marker2.y + 0.3;
+        t3.object3D.position.z = marker2.z;
 
     },
     stage3StartPosition: function () {
@@ -147,22 +164,28 @@ AFRAME.registerComponent('manager', {
         let t1 = document.querySelector('#t1');
         let t2 = document.querySelector('#t2');
         let t3 = document.querySelector('#t3');
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
 
-        s1.object3D.position.x = this.marker2.x;
-        s1.object3D.position.y = this.marker2.y;
-        s1.object3D.position.z = this.marker2.z;
+        s1.object3D.position.x = marker2.x;
+        s1.object3D.position.y = marker2.y;
+        s1.object3D.position.z = marker2.z;
 
-        t1.object3D.position.x = this.marker4.x;
-        t1.object3D.position.y = this.marker4.y;
-        t1.object3D.position.z = this.marker4.z;
+        t1.object3D.position.x = marker4.x;
+        t1.object3D.position.y = marker4.y;
+        t1.object3D.position.z = marker4.z;
 
-        t2.object3D.position.x = this.marker5.x;
-        t2.object3D.position.y = this.marker5.y;
-        t2.object3D.position.z = this.marker5.z;
+        t2.object3D.position.x = marker5.x;
+        t2.object3D.position.y = marker5.y;
+        t2.object3D.position.z = marker5.z;
 
-        t3.object3D.position.x = this.marker6.x;
-        t3.object3D.position.y = this.marker6.y;
-        t3.object3D.position.z = this.marker6.z;
+        t3.object3D.position.x = marker6.x;
+        t3.object3D.position.y = marker6.y;
+        t3.object3D.position.z = marker6.z;
     },
     stage4StartPosition: function () {
         let fire = document.querySelector('#fire1')
@@ -176,22 +199,27 @@ AFRAME.registerComponent('manager', {
         let t1 = document.querySelector('#t1');
         let t2 = document.querySelector('#t2');
         let t3 = document.querySelector('#t3');
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
+        s1.object3D.position.x = marker3.x;
+        s1.object3D.position.y = marker3.y;
+        s1.object3D.position.z = marker3.z;
 
-        s1.object3D.position.x = this.marker3.x;
-        s1.object3D.position.y = this.marker3.y;
-        s1.object3D.position.z = this.marker3.z;
+        t1.object3D.position.x = marker4.x;
+        t1.object3D.position.y = marker4.y;
+        t1.object3D.position.z = marker4.z;
 
-        t1.object3D.position.x = this.marker4.x;
-        t1.object3D.position.y = this.marker4.y;
-        t1.object3D.position.z = this.marker4.z;
+        t2.object3D.position.x = marker5.x;
+        t2.object3D.position.y = marker5.y;
+        t2.object3D.position.z = marker5.z;
 
-        t2.object3D.position.x = this.marker5.x;
-        t2.object3D.position.y = this.marker5.y;
-        t2.object3D.position.z = this.marker5.z;
-
-        t3.object3D.position.x = this.marker6.x;
-        t3.object3D.position.y = this.marker6.y;
-        t3.object3D.position.z = this.marker6.z;
+        t3.object3D.position.x = marker6.x;
+        t3.object3D.position.y = marker6.y;
+        t3.object3D.position.z = marker6.z;
     },
     stage5StartPosition:function(){
         let fire = document.querySelector('#fire1')
@@ -209,21 +237,28 @@ AFRAME.registerComponent('manager', {
         let t2 = document.querySelector('#t2');
         let t3 = document.querySelector('#t3');
 
-        s1.object3D.position.x = this.marker3.x;
-        s1.object3D.position.y = this.marker3.y;
-        s1.object3D.position.z = this.marker3.z;
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
 
-        t1.object3D.position.x = this.marker2.x;
-        t1.object3D.position.y = this.marker2.y;
-        t1.object3D.position.z = this.marker2.z;
+        s1.object3D.position.x = marker3.x;
+        s1.object3D.position.y = marker3.y;
+        s1.object3D.position.z = marker3.z;
 
-        t2.object3D.position.x = this.marker2.x - 0.5;
-        t2.object3D.position.y = this.marker2.y - 0.3;
-        t2.object3D.position.z = this.marker2.z;
+        t1.object3D.position.x = marker2.x;
+        t1.object3D.position.y = marker2.y;
+        t1.object3D.position.z = marker2.z;
 
-        t3.object3D.position.x = this.marker2.x - 0.5;
-        t3.object3D.position.y = this.marker2.y + 0.3;
-        t3.object3D.position.z = this.marker2.z;
+        t2.object3D.position.x = marker2.x - 0.5;
+        t2.object3D.position.y = marker2.y - 0.3;
+        t2.object3D.position.z = marker2.z;
+
+        t3.object3D.position.x = marker2.x - 0.5;
+        t3.object3D.position.y = marker2.y + 0.3;
+        t3.object3D.position.z = marker2.z;
     },
     removeMarkerModels: function () {
         let u = document.querySelector('#union')
@@ -264,6 +299,9 @@ AFRAME.registerComponent('manager', {
         return el;
     },
     stage1Handler: function () {
+
+        let marker2 = document.querySelector('#pos2').object3D.position;
+
         this.stage1StartPosition();
         var self = this;
         let s1 = document.querySelector('#s1');
@@ -273,7 +311,7 @@ AFRAME.registerComponent('manager', {
         let curvePoint1 = document.createElement('a-curve-point');
         let curvePoint2 = document.createElement('a-curve-point');
         curvePoint1.setAttribute('position', s1.object3D.position);
-        curvePoint2.setAttribute('position', this.marker2);
+        curvePoint2.setAttribute('position', marker2);
         curve.appendChild(curvePoint1);
         curve.appendChild(curvePoint2);
         this.scene.appendChild(curve);
@@ -296,7 +334,12 @@ AFRAME.registerComponent('manager', {
         let t1 = document.querySelector('#t1');
         let t2 = document.querySelector('#t2');
         let t3 = document.querySelector('#t3');
-
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
         // Set animations
         t1.setAttribute('animation-mixer', {clip: 'mixamo.com'});
         t2.setAttribute('animation-mixer', {clip: 'mixamo.com'});
@@ -308,7 +351,7 @@ AFRAME.registerComponent('manager', {
         let track41 = document.createElement('a-curve-point');
         let track42 = document.createElement('a-curve-point');
         track41.setAttribute('position', t1.object3D.position);
-        track42.setAttribute('position', this.marker4);
+        track42.setAttribute('position', marker4);
         track4.appendChild(track41);
         track4.appendChild(track42);
         this.scene.appendChild(track4);
@@ -318,7 +361,7 @@ AFRAME.registerComponent('manager', {
         let track51 = document.createElement('a-curve-point');
         let track52 = document.createElement('a-curve-point');
         track51.setAttribute('position', t2.object3D.position);
-        track52.setAttribute('position', this.marker5);
+        track52.setAttribute('position', marker5);
         track5.appendChild(track51);
         track5.appendChild(track52);
         this.scene.appendChild(track5);
@@ -328,7 +371,7 @@ AFRAME.registerComponent('manager', {
         let track61 = document.createElement('a-curve-point');
         let track62 = document.createElement('a-curve-point');
         track61.setAttribute('position', t3.object3D.position);
-        track62.setAttribute('position', this.marker6);
+        track62.setAttribute('position', marker6);
         track6.appendChild(track61);
         track6.appendChild(track62);
         this.scene.appendChild(track6);
@@ -353,6 +396,12 @@ AFRAME.registerComponent('manager', {
     },
     stage3Handler: function () {
         this.stage3StartPosition();
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
         let self = this;
         let s1 = document.querySelector('#s1');
         s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
@@ -361,7 +410,7 @@ AFRAME.registerComponent('manager', {
         let curvePoint1 = document.createElement('a-curve-point');
         let curvePoint2 = document.createElement('a-curve-point');
         curvePoint1.setAttribute('position', s1.object3D.position);
-        curvePoint2.setAttribute('position', this.marker3);
+        curvePoint2.setAttribute('position', marker3);
         track7.appendChild(curvePoint1);
         track7.appendChild(curvePoint2);
         this.scene.appendChild(track7);
@@ -382,6 +431,12 @@ AFRAME.registerComponent('manager', {
     stage4Handler: function () {
         this.stage4StartPosition();
         let self = this;
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
         let t1 = document.querySelector('#t1');
         let t2 = document.querySelector('#t2');
         let t3 = document.querySelector('#t3');
@@ -400,7 +455,7 @@ AFRAME.registerComponent('manager', {
         let track81 = document.createElement('a-curve-point');
         let track82 = document.createElement('a-curve-point');
         track81.setAttribute('position', t1.object3D.position);
-        track82.setAttribute('position', this.marker2);
+        track82.setAttribute('position', marker2);
         track8.appendChild(track81);
         track8.appendChild(track82);
         this.scene.appendChild(track8);
@@ -410,7 +465,7 @@ AFRAME.registerComponent('manager', {
         let track91 = document.createElement('a-curve-point');
         let track92 = document.createElement('a-curve-point');
         track91.setAttribute('position', t2.object3D.position);
-        track92.setAttribute('position', this.marker2);
+        track92.setAttribute('position',marker2);
         track9.appendChild(track91);
         track9.appendChild(track92);
         this.scene.appendChild(track9);
@@ -420,7 +475,7 @@ AFRAME.registerComponent('manager', {
         let track101 = document.createElement('a-curve-point');
         let track102 = document.createElement('a-curve-point');
         track101.setAttribute('position', t3.object3D.position);
-        track102.setAttribute('position', this.marker2);
+        track102.setAttribute('position', marker2);
         track10.appendChild(track101);
         track10.appendChild(track102);
         this.scene.appendChild(track10);
@@ -447,6 +502,12 @@ AFRAME.registerComponent('manager', {
     },
     stage5Handler:function(){
         this.stage5StartPosition();
+        let marker1 = document.querySelector('#pos1').object3D.position;
+        let marker2 = document.querySelector('#pos2').object3D.position;
+        let marker3 = document.querySelector('#pos3').object3D.position;
+        let marker4 = document.querySelector('#pos4').object3D.position;
+        let marker5 = document.querySelector('#pos5').object3D.position;
+        let marker6 = document.querySelector('#pos6').object3D.position;
         let s1 = document.querySelector('#s1');
         s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
         let track11 = document.createElement('a-curve');
@@ -454,7 +515,7 @@ AFRAME.registerComponent('manager', {
         let curvePoint111 = document.createElement('a-curve-point');
         let curvePoint112 = document.createElement('a-curve-point');
         curvePoint111.setAttribute('position', s1.object3D.position);
-        curvePoint112.setAttribute('position', this.marker1);
+        curvePoint112.setAttribute('position', marker1);
         track11.appendChild(curvePoint111);
         track11.appendChild(curvePoint112);
         this.scene.appendChild(track11);
