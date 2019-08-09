@@ -536,11 +536,7 @@ AFRAME.registerComponent('manager', {
     stage5Handler:function(){
         this.stage5StartPosition();
         let marker1 = document.querySelector('#pos1').object3D.position;
-        let marker2 = document.querySelector('#pos2').object3D.position;
-        let marker3 = document.querySelector('#pos3').object3D.position;
-        let marker4 = document.querySelector('#pos4').object3D.position;
-        let marker5 = document.querySelector('#pos5').object3D.position;
-        let marker6 = document.querySelector('#pos6').object3D.position;
+
         let s1 = document.querySelector('#s1');
         s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
         let track11 = document.createElement('a-curve');
@@ -557,10 +553,11 @@ AFRAME.registerComponent('manager', {
         $("#battleInfo").html("Federals retreated to White’s Ranch.");
 
         function stage5Finished() {
-            let s1 = document.querySelector('#s1');
-            s1.removeAttribute('animation-mixer');
-            s1.removeAttribute('alongpath');
-            s1.removeEventListener('movingended', stage5Finished);
+            let s1old = document.querySelector('#s1');
+            if(s1old) s1old.parentNode.removeChild(s1old);
+            let s1 = self.create3Dmodel('s1', 'union');
+            let marker1 = document.querySelector('#pos1');
+            marker1.appendChild(s1);
         }
     },
     tick: function (time, timeDelta) {
