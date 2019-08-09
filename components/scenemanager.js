@@ -536,7 +536,7 @@ AFRAME.registerComponent('manager', {
     stage5Handler:function(){
         this.stage5StartPosition();
         let marker1 = document.querySelector('#pos1').object3D.position;
-
+        let self = this;
         let s1 = document.querySelector('#s1');
         s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
         let track11 = document.createElement('a-curve');
