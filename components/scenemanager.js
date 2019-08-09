@@ -9,6 +9,7 @@ AFRAME.registerComponent('manager', {
         this.stage2Handler = this.stage2Handler.bind(this);
         this.stage3Handler = this.stage3Handler.bind(this);
         this.stage4Handler = this.stage4Handler.bind(this);
+        this.stage5Handler = this.stage5Handler.bind(this);
         this.marker1 = document.querySelector('#pos1').object3D.position;
         this.marker2 = document.querySelector('#pos2').object3D.position;
         this.marker3 = document.querySelector('#pos3').object3D.position;
@@ -19,6 +20,7 @@ AFRAME.registerComponent('manager', {
         $("#stage2").click(self.stage2Handler);
         $("#stage3").click(self.stage3Handler);
         $("#stage4").click(self.stage4Handler);
+        $("#stage5").click(self.stage5Handler);
         $("#fullScreen").click(function () {
             if (!document.fullscreenElement
                 && !document.mozFullScreenElement
@@ -167,9 +169,41 @@ AFRAME.registerComponent('manager', {
         fire.setAttribute('visible', 'false');
         $('#stage4').removeClass('btn-dark').addClass('btn-danger active');
         $('#stage2').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage1').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
+        let s1 = document.querySelector('#s1');
+        let t1 = document.querySelector('#t1');
+        let t2 = document.querySelector('#t2');
+        let t3 = document.querySelector('#t3');
+
+        s1.object3D.position.x = this.marker3.x;
+        s1.object3D.position.y = this.marker3.y;
+        s1.object3D.position.z = this.marker3.z;
+
+        t1.object3D.position.x = this.marker4.x;
+        t1.object3D.position.y = this.marker4.y;
+        t1.object3D.position.z = this.marker4.z;
+
+        t2.object3D.position.x = this.marker5.x;
+        t2.object3D.position.y = this.marker5.y;
+        t2.object3D.position.z = this.marker5.z;
+
+        t3.object3D.position.x = this.marker6.x;
+        t3.object3D.position.y = this.marker6.y;
+        t3.object3D.position.z = this.marker6.z;
+    },
+    stage5StartPosition:function(){
+        let fire = document.querySelector('#fire1')
+        fire.setAttribute('visible', 'false');
+        fire.object3D.position.x = this.marker2.x;
+        fire.object3D.position.y = this.marker2.y;
+        fire.object3D.position.z = this.marker2.z;
+        $('#stage5').removeClass('btn-dark').addClass('btn-danger active');
+        $('#stage2').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage3').removeClass('btn-danger active').addClass('btn-dark');
         $('#stage1').removeClass('btn-danger active').addClass('btn-dark');
-        $('#stage5').removeClass('btn-danger active').addClass('btn-dark');
+        $('#stage4').removeClass('btn-danger active').addClass('btn-dark');
         let s1 = document.querySelector('#s1');
         let t1 = document.querySelector('#t1');
         let t2 = document.querySelector('#t2');
@@ -231,7 +265,7 @@ AFRAME.registerComponent('manager', {
     },
     stage1Handler: function () {
         this.stage1StartPosition();
-
+        var self = this;
         let s1 = document.querySelector('#s1');
         s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
         let curve = document.createElement('a-curve');
@@ -252,6 +286,7 @@ AFRAME.registerComponent('manager', {
             s11.removeEventListener('movingended', stage1Finish);
             s11.removeAttribute('animation-mixer');
             s11.removeAttribute('alongpath');
+            setTimeout(self.stage2Handler,2000);
         }
 
     },
@@ -312,6 +347,7 @@ AFRAME.registerComponent('manager', {
             t2.removeAttribute('alongpath');
             t3.removeAttribute('animation-mixer');
             t3.removeAttribute('alongpath');
+            setTimeout(self.stage3Handler,2000);
         }
     },
     stage3Handler: function () {
@@ -336,16 +372,97 @@ AFRAME.registerComponent('manager', {
             s11.removeAttribute('alongpath');
             let fire = document.querySelector('#fire1')
             fire.setAttribute('visible', 'true');
-            fire.object3D.position.x = this.marker2.x;
-            fire.object3D.position.y = this.marker2.y;
-            fire.object3D.position.z = this.marker2.z;
+            setTimeout(self.stage4Handler,2000);
 
         }
 
     },
     stage4Handler: function () {
         this.stage4StartPosition();
+        let t1 = document.querySelector('#t1');
+        let t2 = document.querySelector('#t2');
+        let t3 = document.querySelector('#t3');
+        let tt1 = document.querySelector('#track8');
+        let tt2 = document.querySelector('#track9');
+        let tt3 = document.querySelector('#track10');
+        if(tt1) tt1.parentNode.removeChild(tt1);
+        if(tt2) tt2.parentNode.removeChild(tt2);
+        if(tt3) tt3.parentNode.removeChild(tt3);
+        t1.setAttribute('animation-mixer', {clip: 'mixamo.com'});
+        t2.setAttribute('animation-mixer', {clip: 'mixamo.com'});
+        t3.setAttribute('animation-mixer', {clip: 'mixamo.com'});
 
+        let track8 = document.createElement('a-curve');
+        track8.setAttribute('id', 'track8');
+        let track81 = document.createElement('a-curve-point');
+        let track82 = document.createElement('a-curve-point');
+        track81.setAttribute('position', t1.object3D.position);
+        track82.setAttribute('position', this.marker2);
+        track8.appendChild(track81);
+        track8.appendChild(track82);
+        this.scene.appendChild(track8);
+
+        let track9 = document.createElement('a-curve');
+        track9.setAttribute('id', 'track9');
+        let track91 = document.createElement('a-curve-point');
+        let track92 = document.createElement('a-curve-point');
+        track91.setAttribute('position', t2.object3D.position);
+        track92.setAttribute('position', this.marker2);
+        track9.appendChild(track91);
+        track9.appendChild(track92);
+        this.scene.appendChild(track9);
+
+        let track10 = document.createElement('a-curve');
+        track10.setAttribute('id', 'track10');
+        let track101 = document.createElement('a-curve-point');
+        let track102 = document.createElement('a-curve-point');
+        track101.setAttribute('position', t3.object3D.position);
+        track102.setAttribute('position', this.marker2);
+        track10.appendChild(track101);
+        track10.appendChild(track102);
+        this.scene.appendChild(track10);
+
+        t1.setAttribute('alongpath', {curve: '#track8', dur: 3000, rotate: true, delay: 2000});
+        t2.setAttribute('alongpath', {curve: '#track9', dur: 3000, rotate: true, delay: 2000});
+        t3.setAttribute('alongpath', {curve: '#track10', dur: 3000, rotate: true, delay: 2000});
+        t1.addEventListener('movingended', stage4Finished)
+        function stage4Finished() {
+            let t1 = document.querySelector('#t1');
+            let t2 = document.querySelector('#t2');
+            let t3 = document.querySelector('#t3');
+
+            t1.removeEventListener('movingended', stage4Finished);
+            t1.removeAttribute('animation-mixer');
+            t1.removeAttribute('alongpath');
+            t2.removeAttribute('animation-mixer');
+            t2.removeAttribute('alongpath');
+            t3.removeAttribute('animation-mixer');
+            t3.removeAttribute('alongpath');
+            setTimeout(self.stage5Handler,2000);
+        }
+
+    },
+    stage5Handler:function(){
+        this.stage5StartPosition();
+        let s1 = document.querySelector('#s1');
+        let track11 = document.createElement('a-curve');
+        track11.setAttribute('id', 'track11');
+        let curvePoint111 = document.createElement('a-curve-point');
+        let curvePoint112 = document.createElement('a-curve-point');
+        curvePoint111.setAttribute('position', s1.object3D.position);
+        curvePoint112.setAttribute('position', this.marker1);
+        track11.appendChild(curvePoint111);
+        track11.appendChild(curvePoint112);
+        this.scene.appendChild(track11);
+        s1.setAttribute('alongpath', {curve: '#track11', dur: 3000, rotate: true, delay: 2000});
+        s1.addEventListener('movingended', stage5Finished)
+
+        function stage5Finished() {
+            let s1 = document.querySelector('#s1');
+            s1.removeAttribute('animation-mixer');
+            s1.removeAttribute('alongpath');
+            s1.removeEventListener('movingended', stage5Finished);
+        }
     },
     tick: function (time, timeDelta) {
         let pos1 = document.querySelector('#pos1').object3D;
@@ -363,6 +480,7 @@ AFRAME.registerComponent('manager', {
         $('#stage2').prop('disabled', !flag2);
         $('#stage3').prop('disabled', !flag3);
         $('#stage4').prop('disabled', !flag4);
+        $('#stage5').prop('disabled', !flag1);
 
 
     }
