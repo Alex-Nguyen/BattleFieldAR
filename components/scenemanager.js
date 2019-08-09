@@ -47,24 +47,7 @@ AFRAME.registerComponent('manager', {
         $("#stage4").click(self.stage4Handler);
 
     },
-    removeExistingModel: function () {
-        let s1 = document.querySelector('#s1');
-        let s11 = document.querySelector('#s11');
-        let s22 = document.querySelector('#s22');
-        let s33 = document.querySelector('#s33');
-        if (s1) {
-            s1.parentNode.removeChild(s1);
-        }
-        if (s11) {
-            s11.parentNode.removeChild(s11)
-        }
-        if (s22) {
-            s22.parentNode.removeChild(s22)
-        }
-        if (s33) {
-            s33.parentNode.removeChild(s33)
-        }
-    },
+
     removeMarkerModels: function () {
         let u = document.querySelector('#union')
         let c = document.querySelector('#conf');
@@ -236,14 +219,7 @@ AFRAME.registerComponent('manager', {
         el.object3D.position.x = pos2.x;
         el.object3D.position.y = pos2.y;
         el.object3D.position.z = pos2.z;
-        let unionFlag = document.createElement('a-plane');
-        unionFlag.setAttribute('src', '#unionFlag');
-        unionFlag.setAttribute('height', "0.8");
-        unionFlag.setAttribute('width', "1.2");
-        unionFlag.setAttribute('position', "0 2 0");
-        unionFlag.setAttribute('look-at', "[camera]");
-        el.appendChild(unionFlag)
-        scene.appendChild(el);
+
         let old1 = document.querySelector('#s11');
         if (old1) {
             old1.removeAttribute('animation-mixer');
