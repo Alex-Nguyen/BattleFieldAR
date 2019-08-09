@@ -513,18 +513,21 @@ AFRAME.registerComponent('manager', {
             let t1old = document.querySelector('#t1');
             if(t1old) t1old.parentNode.removeChild(t1old);
             let t1 = self.create3Dmodel('t1', 'conf');
+
             marker2.appendChild(t1);
 
 
             let t2old = document.querySelector('#t2');
             if(t2old) t2old.parentNode.removeChild(t2old);
             let t2 = self.create3Dmodel('t2', 'conf');
+            t2.object3D.position.y -=0.5;
             marker2.appendChild(t2);
 
 
             let t3old = document.querySelector('#t3');
             if(t3old) t3old.parentNode.removeChild(t3old);
             let t3 = self.create3Dmodel('t3', 'conf');
+            t3.object3D.position.y +=0.5;
             marker2.appendChild(t3);
             setTimeout(self.stage5Handler,2000);
         }
