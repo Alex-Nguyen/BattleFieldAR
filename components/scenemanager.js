@@ -220,7 +220,7 @@ AFRAME.registerComponent('manager', {
 
 
         let el = document.querySelector('#s1');
-        el..setAttribute('animation-mixer', {clip: 'mixamo.com'})
+        el.setAttribute('animation-mixer', {clip: 'mixamo.com'})
 
         let pos2 = document.querySelector('#pos2').object3D.position;
         el.object3D.position.x = pos2.x;
