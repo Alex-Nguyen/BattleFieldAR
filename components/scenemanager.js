@@ -315,6 +315,9 @@ AFRAME.registerComponent('manager', {
         this.scene.appendChild(curve);
         s1.setAttribute('alongpath', {curve: '#track1', dur: 3000, rotate: true, delay: 2000});
         $("#battleInfo").html("8:30 AM May 12th 1865 Branson led his men off to attack a Confederate camp at Palmito Ranch");
+        let sound1 = document.querySelector('#sound1');
+        sound1.components.sound.playSound();
+
         s1.addEventListener('movingended', stage1Finish)
 
         function stage1Finish() {
@@ -375,7 +378,8 @@ AFRAME.registerComponent('manager', {
         track6.appendChild(track62);
         this.scene.appendChild(track6);
         $("#battleInfo").text(`After skirmishing along the way, the Federals attacked the camp and scattered the Confederates`)
-
+        let sound2 = document.querySelector('#sound2');
+        sound2.components.sound.playSound();
         t1.setAttribute('alongpath', {curve: '#track4', dur: 3000, rotate: true, delay: 2000});
         t2.setAttribute('alongpath', {curve: '#track5', dur: 3000, rotate: true, delay: 2000});
         t3.setAttribute('alongpath', {curve: '#track6', dur: 3000, rotate: true, delay: 2000});
@@ -428,7 +432,8 @@ AFRAME.registerComponent('manager', {
         track7.appendChild(curvePoint2);
         this.scene.appendChild(track7);
         $("#battleInfo").text(`After the small confrontation at Palmito Ranch, Branson and the Union troops retreated to the hill nearby to rest their troops and animals`)
-
+        let sound3 = document.querySelector('#sound3');
+        sound3.components.sound.playSound();
         s1.setAttribute('alongpath', {curve: '#track7', dur: 3000, rotate: true, delay: 2000});
         s1.addEventListener('movingended', stage3Finished)
         function stage3Finished() {
@@ -444,7 +449,8 @@ AFRAME.registerComponent('manager', {
 
 
             $("#battleInfo").text(`The Union took Palmito Ranch, burning any supplies that they found abandoned at the camp, and capturing three prisoners`);
-
+            let burningcamp = document.querySelector('#burningcamp');
+            burningcamp.components.sound.playSound();
             setTimeout(self.stage4Handler,2000);
 
         }
@@ -502,7 +508,8 @@ AFRAME.registerComponent('manager', {
         track10.appendChild(track102);
         this.scene.appendChild(track10);
         $("#battleInfo").html("At 3pm, the Confederates came with reinforcements");
-
+        let sound4 = document.querySelector('#sound4');
+        sound4.components.sound.playSound();
         t1.setAttribute('alongpath', {curve: '#track8', dur: 3000, rotate: true, delay: 2000});
         t2.setAttribute('alongpath', {curve: '#track9', dur: 3000, rotate: true, delay: 2000});
         t3.setAttribute('alongpath', {curve: '#track10', dur: 3000, rotate: true, delay: 2000});
@@ -551,7 +558,8 @@ AFRAME.registerComponent('manager', {
         s1.setAttribute('alongpath', {curve: '#track11', dur: 3000, rotate: true, delay: 2000});
         s1.addEventListener('movingended', stage5Finished)
         $("#battleInfo").html("Federals retreated to White’s Ranch.");
-
+        let sound5 = document.querySelector('#sound5');
+        sound5.components.sound.playSound();
         function stage5Finished() {
             let s1old = document.querySelector('#s1');
             if(s1old) s1old.parentNode.removeChild(s1old);

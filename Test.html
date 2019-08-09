@@ -12,65 +12,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/fontawesome.min.css">
 <body style='margin : 0px; overflow: hidden;'>
 
-    <ul  class="nav fixed-top nav-pills nav-fill" style="z-index: 10; padding-top: 20px">
-        <li class="nav-item">
-            <button type="button" class="btn btn-dark">Stage 1</button>
-        </li>
-        <li class="nav-item">
-            <button type="button" class="btn btn-dark">Stage 2</button>
-        </li>
-        <li class="nav-item">
-            <button type="button" class="btn btn-dark">Stage 3</button>
-        </li>
-        <li class="nav-item">
-            <button type="button" class="btn btn-dark">Stage 4</button>
-        </li>
-        <li class="nav-item">
-            <button type="button" class="btn btn-dark">Stage 5</button>
-        </li>
-        <li class="nav-item">
-            <button type="button" class="btn btn-dark">ScreenShot</button>
 
-        </li>
-    </ul>
 
 
 
 <a-scene embedded arjs='sourceType: webcam;'>
-    <a-assets>
-        <img id="unionFlag" src="data/unionFlags.jpg">
-        <img id="confederate" src="data/confederate.jpg">
-        <a-asset-item id="man" src="data/Walking.glb"></a-asset-item>
-    </a-assets>
-    <!-- handle marker with your own pattern -->
-    <a-marker type='pattern' url='data/pattern-P11.patt'>
-        <a-entity id="source"  gltf-model="#man" position="0 0.5 0" rotation="0 -90 0" scale="0.6 0.6 0.6"
-                  animation-mixer="clip:Idle">
-            <!--        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>-->
-            <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
+    <a-entity id="river" geometry="primitive: plane" material="color: blue"
+              position="-10 0 0" sound="src: url(data/transcript.mp3); autoplay: true"></a-entity>
 
-        </a-entity>
-    </a-marker>
-
-    <a-marker type='pattern' url='data/pattern-pat33.patt'>
-        <a-entity id="source2"  gltf-model="#man" position="0 0.5 0" rotation="0 -90 0" scale="0.6 0.6 0.6"
-                  animation-mixer="clip:Idle">
-            <!--        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>-->
-            <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
-
-        </a-entity>
-    </a-marker>
-
-    <a-marker type='pattern' url='data/pattern-pat55.patt'>
-        <a-entity id="source3"  gltf-model="#man" position="0 0.5 0" rotation="0 -90 0" scale="0.6 0.6 0.6"
-                  animation-mixer="clip:Idle">
-            <!--        <a-text value="Union Troops" look-at="[camera]" position="0 1.5 0" color="red" scale="2 2 2"></a-text>-->
-            <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1" width="1.2"></a-plane>
-
-        </a-entity>
-    </a-marker>
-
-    <!-- add a simple camera -->
-    <a-entity camera></a-entity>
 </a-scene>
 </body>
