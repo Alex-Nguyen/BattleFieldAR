@@ -45,6 +45,9 @@
             <button type="button" disabled id="stage5" class="btn btn-dark">Stage 5</button>
         </li>
         <li class="nav-item">
+            <button type="button" disabled id="fullScreen" class="btn btn-success">ToggleFull</button>
+        </li>
+        <li class="nav-item">
             <a href="data/printedmap.pdf" download type="button" class="btn btn-success">Print Map</a>
 
         </li>
@@ -65,18 +68,8 @@
               position="0 0 -10">
     </a-entity>
     <a-marker id="pos1" type='pattern' url='data/pattern-pos1.patt'>
-        <a-entity id="union" gltf-model="#man" animation-mixer="clip:Idle">
-            <a-plane src="#unionFlag" look-at="[camera]" height=".8" position="0 2 0"
-                     width="1.2"></a-plane>
-        </a-entity>
     </a-marker>
     <a-marker id="pos2" type='pattern' url='data/pattern-pos2.patt'>
-        <a-entity id="conf"  gltf-model="#man" position="0 0 0" rotation="0 0 0" scale="1 1 1"
-                  animation-mixer="clip:Idle">
-            <a-plane src="#confederate" look-at="[camera]" height=".8" position="0 2 0" scale="1 1 1"
-                     width="1.2"></a-plane>
-
-        </a-entity>
     </a-marker>
     <a-marker id="pos3" type='pattern' url='data/pattern-pos3.patt'>
     </a-marker>
