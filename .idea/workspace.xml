@@ -19,10 +19,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="113" column="9" lean-forward="true" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+            <state relative-caret-position="438">
+              <caret line="139" column="24" selection-start-line="139" selection-start-column="18" selection-end-line="139" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#body#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#!!top" expanded="true" />
@@ -31,7 +32,7 @@
                 <element signature="n#style#0;n#div#5;n#div#1;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#6;n#div#1;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#7;n#div#1;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#a-assets#0;n#a-scene#0;n#body#0;n#!!top" />
+                <element signature="n#div#2;n#body#0;n#!!top" />
                 <element signature="n#a-entity#0;n#a-scene#0;n#body#0;n#!!top" />
                 <element signature="n#a-marker#1;n#a-scene#0;n#body#0;n#!!top" />
               </folding>
@@ -70,13 +71,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-506">
-              <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+            <state relative-caret-position="351">
+              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
               <folding>
                 <element signature="e#242#1570#0" />
+                <element signature="e#2306#4120#0" />
+                <element signature="e#4159#5838#0" />
+                <element signature="e#5877#7737#0" />
+                <element signature="e#7776#9489#0" />
+                <element signature="e#9525#11706#0" />
                 <element signature="e#11744#11983#0" />
                 <element signature="e#12024#13047#0" />
-                <element signature="e#13080#14552#0" />
                 <element signature="e#14585#18329#0" />
                 <element signature="e#19919#20764#0" />
                 <element signature="e#26198#27189#0" />
@@ -291,12 +296,12 @@
       <workItem from="1565231508062" duration="18699000" />
       <workItem from="1565295778067" duration="16351000" />
       <workItem from="1565375968208" duration="12370000" />
-      <workItem from="1565732956527" duration="21971000" />
+      <workItem from="1565732956527" duration="22966000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127325000" />
+    <option name="totallyTimeSpent" value="128320000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -436,10 +441,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="113" column="9" lean-forward="true" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+        <state relative-caret-position="438">
+          <caret line="139" column="24" selection-start-line="139" selection-start-column="18" selection-end-line="139" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#body#0;n#!!top" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#!!top" expanded="true" />
@@ -448,7 +454,7 @@
             <element signature="n#style#0;n#div#5;n#div#1;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#6;n#div#1;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#7;n#div#1;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#a-assets#0;n#a-scene#0;n#body#0;n#!!top" />
+            <element signature="n#div#2;n#body#0;n#!!top" />
             <element signature="n#a-entity#0;n#a-scene#0;n#body#0;n#!!top" />
             <element signature="n#a-marker#1;n#a-scene#0;n#body#0;n#!!top" />
           </folding>
@@ -457,13 +463,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-506">
-          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+        <state relative-caret-position="351">
+          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
           <folding>
             <element signature="e#242#1570#0" />
+            <element signature="e#2306#4120#0" />
+            <element signature="e#4159#5838#0" />
+            <element signature="e#5877#7737#0" />
+            <element signature="e#7776#9489#0" />
+            <element signature="e#9525#11706#0" />
             <element signature="e#11744#11983#0" />
             <element signature="e#12024#13047#0" />
-            <element signature="e#13080#14552#0" />
             <element signature="e#14585#18329#0" />
             <element signature="e#19919#20764#0" />
             <element signature="e#26198#27189#0" />

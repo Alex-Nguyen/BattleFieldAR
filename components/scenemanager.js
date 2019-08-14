@@ -39,31 +39,22 @@ AFRAME.registerComponent('manager', {
         this.stage6Handler = this.stage6Handler.bind(this);
         this.stage7Handler = this.stage7Handler.bind(this);
         this.stage8Handler = this.stage8Handler.bind(this);
+        $("#stage1").click(self.stage1Handler);
+        $("#stage2").click(self.stage2Handler);
+        $("#stage3").click(self.stage3Handler);
+        $("#stage4").click(self.stage4Handler);
+        $("#stage5").click(self.stage5Handler);
+        $("#stage6").click(self.stage6Handler);
+        $("#stage7").click(self.stage7Handler);
+        $("#stage8").click(self.stage8Handler);
 
-        function audioReady(){
-            return $.when.apply($, $('audio').map(function(){
-                var ready = new $.Deferred();
-                $(this).one('canplay', ready.resolve);
-                return ready.promise();
-            }));
-        }
-        audioReady().then(function () {
-            $("#stage1").click(self.stage1Handler);
-            $("#stage2").click(self.stage2Handler);
-            $("#stage3").click(self.stage3Handler);
-            $("#stage4").click(self.stage4Handler);
-            $("#stage5").click(self.stage5Handler);
-            $("#stage6").click(self.stage6Handler);
-            $("#stage7").click(self.stage7Handler);
-            $("#stage8").click(self.stage8Handler);
-
-        });
+        
     },
 
     stage1StartPosition: function () {
         let fire = document.querySelector('#fire1')
         fire.setAttribute('visible', 'false');
-       
+
         let marker1 = document.querySelector('#pos1').object3D.position;
         let marker2 = document.querySelector('#pos2').object3D.position;
         //Remove models from markers and append to the scene
@@ -293,12 +284,10 @@ AFRAME.registerComponent('manager', {
         $("#stage1").removeClass('btn-dark').addClass('btn-danger');
         $(".message").hide();
         $("#message01").fadeIn(500);
-        $('.audio-play').each(function(){
-            this.pause(); // Stop playing
-            this.currentTime = 0; // Reset time
-        });
-        $("#audio1").trigger("play");
-
+        let sounds = document.querySelector('[sound]');
+        sounds.components.sound.stopSound();
+        let sound1 = document.querySelector("#sound1");
+        sound1.components.sound.playSound();
 
         let marker2 = document.querySelector('#pos2').object3D.position;
 

@@ -22,30 +22,7 @@
 
 </style>
 <body style='margin :auto; overflow: hidden;'>
-<audio id="audio1" class="audio-play"  preload="auto">
-    <source src="data/Voice/message01.mp3" type="audio/mpeg">
-</audio>
-<audio id="audio2" class="audio-play"  preload="auto">
-    <source src="data/Voice/message02.mp3" type="audio/mpeg">
-</audio>
-<audio id="audio3" class="audio-play"  preload="auto">
-    <source src="data/Voice/message03.mp3" type="audio/mpeg">
-</audio>
-<audio id="audio4" class="audio-play"  preload="auto">
-    <source src="data/Voice/message04.mp3" type="audio/mpeg">
-</audio>
-<audio id="audio5" class="audio-play"  preload="auto">
-    <source src="data/Voice/message05.mp3" type="audio/mpeg">
-</audio>
-<audio id="audio6" class="audio-play"  preload="auto">
-    <source src="data/Voice/message06.mp3" type="audio/mpeg">
-</audio>
-<audio id="audio7" class="audio-play"  preload="auto">
-    <source src="data/Voice/message07.mp3" type="audio/mpeg">
-</audio>
-<audio id="audio8" class="audio-play"  preload="auto">
-    <source src="data/Voice/message08.mp3" type="audio/mpeg">
-</audio>
+
 <div id="countdown"></div>
 <div class="fixed-bottom mb-4">
     <div id="message01" style="display: none" class="text-center pl-5 pr-5 bg-info message">
@@ -118,6 +95,22 @@
         <img id="unionFlag" src="data/unionFlags.jpg">
         <img id="confederate" src="data/confederate.jpg">
         <a-asset-item id="man" src="data/Walking.glb"></a-asset-item>
+        <audio id="audio1" src="data/Voice/message01.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio2" src="data/Voice/message02.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio3" src="data/Voice/message03.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio4" src="data/Voice/message04.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio5" src="data/Voice/message05.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio6" src="data/Voice/message06.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio7" src="data/Voice/message07.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio8" src="data/Voice/message08.mp3" class="audio-play"  preload="auto">
+        </audio>
     </a-assets>
 
     <a-entity id="fire1" visible="false"  rotation="0 0 42"
@@ -144,6 +137,14 @@
     <a-marker id="pos6" type='pattern' url='data/pattern-pos6.patt'>
     </a-marker>
     <a-entity camera></a-entity>
+    <a-entity id="sound1" sound="src: #audio1"></a-entity>
+    <a-entity id="sound2" sound="src: #audio2"></a-entity>
+    <a-entity id="sound3" sound="src: #audio3"></a-entity>
+    <a-entity id="sound4" sound="src: #audio4"></a-entity>
+    <a-entity id="sound5" sound="src: #audio5"></a-entity>
+    <a-entity id="sound6" sound="src: #audio6"></a-entity>
+    <a-entity id="sound7" sound="src: #audio7"></a-entity>
+    <a-entity id="sound8" sound="src: #audio8"></a-entity>
 
 </a-scene>
 </body>
