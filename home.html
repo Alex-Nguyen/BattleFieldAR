@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
 
     <style>
         body { margin:0; padding:0; }
@@ -44,7 +45,6 @@
 </body>
 <script>
     $(document).ready( function() {
-        var flying = false;
         // When site loaded, load the Popupbox First
         let timerText = $("#timer");
         let dialog = $("#dialog");
@@ -70,26 +70,8 @@
                 initCounter--;
                 if(initCounter <0){
                     flyTo();
-                    var flying = false;
-                    map.on('flystart', function(){
-                        flying = true;
-                    });
-                    map.on('flyend', function(){
-                        flying = false;
-                    });
-
-                    map.on('moveend', function(e){
-                        if(flying) {
-                            map.setStyle('mapbox://styles/mapbox/satellite-v9');
-                            map.fire('flyend');
-                            setTimeout(function () {
-                                startAFrame();
-                            },3000)
-                        }
-                    });
                     clearInterval(initTimer);
                     dialog.dialog('close');
-
 
 
                 }else{
@@ -99,15 +81,12 @@
             },1000);
             dialog.dialog({
                 close:function () {
+                    flyTo();
                    clearInterval(initTimer);
-                   flyTo();
+
                 }
             });
             function flyTo() {
-
-
-
-
                 map.flyTo({
                     center: end,
                     zoom: 13.5,
@@ -116,7 +95,26 @@
                     curve: .6, // change the speed at which it zooms out
                     easing: function (t) { return t; }
                 });
+                var flying = false;
+                map.on('flystart', function(){
+                    flying = true;
+                });
+                map.on('flyend', function(){
+                    flying = false;
+                });
+
+                map.on('moveend', function(e){
+                    console.log(e)
+                    if(flying) {
+                        map.setStyle('mapbox://styles/mapbox/satellite-v9');
+                        map.fire('flyend');
+                        setTimeout(function () {
+                            startAFrame();
+                        },3000)
+                    }
+                });
                 map.fire('flystart');
+
             }
         }
 
