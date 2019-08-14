@@ -103,78 +103,88 @@
 </body>
 <script>
     $(document).ready(function () {
-        $("#stage1").click(function () {
-            $(".message").hide();
-            $("#message01").fadeIn(500);
-            $('.audio-play').each(function(){
-                this.pause(); // Stop playing
-                this.currentTime = 0; // Reset time
+        function audioReady(){
+            return $.when.apply($, $('audio').map(function(){
+                var ready = new $.Deferred();
+                $(this).one('canplay', ready.resolve);
+                return ready.promise();
+            }));
+        }
+        audioReady().then(function () {
+            $("#stage1").click(function () {
+                $(".message").hide();
+                $("#message01").fadeIn(500);
+                $('.audio-play').each(function(){
+                    this.pause(); // Stop playing
+                    this.currentTime = 0; // Reset time
+                });
+                $("#audio1").trigger("play");
             });
-            $("#audio1").trigger("play");
-        });
-        $("#stage2").click(function () {
-            $(".message").hide();
-            $("#message02").fadeIn(500);
-            $('.audio-play').each(function(){
-                this.pause(); // Stop playing
-                this.currentTime = 0; // Reset time
+            $("#stage2").click(function () {
+                $(".message").hide();
+                $("#message02").fadeIn(500);
+                $('.audio-play').each(function(){
+                    this.pause(); // Stop playing
+                    this.currentTime = 0; // Reset time
+                });
+                $("#audio2").trigger("play");
             });
-            $("#audio2").trigger("play");
-        });
-        $("#stage3").click(function () {
-            $(".message").hide();
-            $("#message03").fadeIn(500);
-            $('.audio-play').each(function(){
-                this.pause(); // Stop playing
-                this.currentTime = 0; // Reset time
+            $("#stage3").click(function () {
+                $(".message").hide();
+                $("#message03").fadeIn(500);
+                $('.audio-play').each(function(){
+                    this.pause(); // Stop playing
+                    this.currentTime = 0; // Reset time
+                });
+                $("#audio3").trigger("play");
             });
-            $("#audio3").trigger("play");
-        });
-        $("#stage4").click(function () {
-            $(".message").hide();
-            $("#message04").fadeIn(500);
-            $('.audio-play').each(function(){
-                this.pause(); // Stop playing
-                this.currentTime = 0; // Reset time
+            $("#stage4").click(function () {
+                $(".message").hide();
+                $("#message04").fadeIn(500);
+                $('.audio-play').each(function(){
+                    this.pause(); // Stop playing
+                    this.currentTime = 0; // Reset time
+                });
+                $("#audio4").trigger("play");
             });
-            $("#audio4").trigger("play");
-        });
-        $("#stage5").click(function () {
-            $(".message").hide();
-            $("#message05").fadeIn(500);
-            $('.audio-play').each(function(){
-                this.pause(); // Stop playing
-                this.currentTime = 0; // Reset time
+            $("#stage5").click(function () {
+                $(".message").hide();
+                $("#message05").fadeIn(500);
+                $('.audio-play').each(function(){
+                    this.pause(); // Stop playing
+                    this.currentTime = 0; // Reset time
+                });
+                $("#audio5").trigger("play");
             });
-            $("#audio5").trigger("play");
-        });
-        $("#stage6").click(function () {
-            $(".message").hide();
-            $("#message06").fadeIn(500);
-            $('.audio-play').each(function(){
-                this.pause(); // Stop playing
-                this.currentTime = 0; // Reset time
+            $("#stage6").click(function () {
+                $(".message").hide();
+                $("#message06").fadeIn(500);
+                $('.audio-play').each(function(){
+                    this.pause(); // Stop playing
+                    this.currentTime = 0; // Reset time
+                });
+                $("#audio6").trigger("play");
             });
-            $("#audio6").trigger("play");
-        });
-        $("#stage7").click(function () {
-            $(".message").hide();
-            $("#message07").fadeIn(500);
-            $('.audio-play').each(function(){
-                this.pause(); // Stop playing
-                this.currentTime = 0; // Reset time
+            $("#stage7").click(function () {
+                $(".message").hide();
+                $("#message07").fadeIn(500);
+                $('.audio-play').each(function(){
+                    this.pause(); // Stop playing
+                    this.currentTime = 0; // Reset time
+                });
+                $("#audio7").trigger("play");
             });
-            $("#audio7").trigger("play");
-        });
-        $("#stage8").click(function () {
-            $(".message").hide();
-            $("#message08").fadeIn(500);
-            $('.audio-play').each(function(){
-                this.pause(); // Stop playing
-                this.currentTime = 0; // Reset time
+            $("#stage8").click(function () {
+                $(".message").hide();
+                $("#message08").fadeIn(500);
+                $('.audio-play').each(function(){
+                    this.pause(); // Stop playing
+                    this.currentTime = 0; // Reset time
+                });
+                $("#audio8").trigger("play");
             });
-            $("#audio8").trigger("play");
-        });
+        })
+
     });
 </script>
 </html>

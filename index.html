@@ -22,37 +22,96 @@
 
 </style>
 <body style='margin :auto; overflow: hidden;'>
+<audio id="audio1" class="audio-play"  preload="auto">
+    <source src="data/Voice/message01.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio2" class="audio-play"  preload="auto">
+    <source src="data/Voice/message02.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio3" class="audio-play"  preload="auto">
+    <source src="data/Voice/message03.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio4" class="audio-play"  preload="auto">
+    <source src="data/Voice/message04.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio5" class="audio-play"  preload="auto">
+    <source src="data/Voice/message05.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio6" class="audio-play"  preload="auto">
+    <source src="data/Voice/message06.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio7" class="audio-play"  preload="auto">
+    <source src="data/Voice/message07.mp3" type="audio/mpeg">
+</audio>
+<audio id="audio8" class="audio-play"  preload="auto">
+    <source src="data/Voice/message08.mp3" type="audio/mpeg">
+</audio>
 <div id="countdown"></div>
-<div  class="fixed-bottom">
-    <p class="text-center bg-info" id="battleInfo">Colonel Theodore H. Barrett, commander of the Union forces ordered his troops to advance towards the Confederate stronghold of Fort Brown
-    </p>
+<div class="fixed-bottom mb-4">
+    <div id="message01" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>Around 8:30 am May 12, 1865 Branson led his men off to attack a Confederate camp at Palmito Ranch</h4>
+    </div>
+    <div id="message02" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>After much skirmishing along the way, the Federals attacked the camp and scattered the Confederates</h4>
+    </div>
+    <div id="message03" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>The Union took Palmito Ranch, burning any supplies that they found abandoned at the camp, and capturing
+            three prisoners. Branson and his men remained at the site to feed themselves and their horses</h4>
+    </div>
+    <div id="message04" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>At 3:00 pm, a sizable Confederate force appeared, influencing the Federals to retire to White’s Ranch</h4>
+    </div>
+    <div id="message05" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>On the 13th, with 200 augmented men, the Union started out towards Palmito Ranch, skirmishing most of the
+            way. They destroyed the rest of the supplies not torched the day before and continued on</h4>
+    </div>
+    <div id="message06" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>After the fighting stopped, Barrett led his force back to a bluff at Tulosa on the river where the men could
+            prepare dinner and camp for the night</h4>
+    </div>
+    <div id="message07" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>At 4:00 pm, a large Confederate cavalry force, commanded by Col. John S. “Rip” Ford, approached. The Rebels
+            hammered the Union line with artillery</h4>
+    </div>
+    <div id="message08" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>To preclude an enemy flanking movement, Barrett ordered a retreat. This was the last battle in the Civil
+            War</h4>
+    </div>
 </div>
-<div class="fixed-top m-4">
-    <ul class="nav nav-pills nav-justified" >
+<div class="fixed-top mt-4">
+    <ul class="nav nav-pills nav-justified">
         <li class="nav-item">
-            <button type="button" disabled id="stage1" class="btn btn-dark active">Stage 1</button>
+            <button type="button" id="stage1" class="btn btn-dark active">S1</button>
         </li>
         <li class="nav-item">
-            <button type="button" disabled id="stage2" class="btn btn-dark">Stage 2</button>
+            <button type="button" id="stage2" class="btn btn-dark">S2</button>
         </li>
         <li class="nav-item">
-            <button type="button" disabled id="stage3" class="btn btn-dark">Stage 3</button>
+            <button type="button" id="stage3" class="btn btn-dark">S3</button>
         </li>
         <li class="nav-item">
-            <button type="button" disabled id="stage4" class="btn btn-dark">Stage 4</button>
+            <button type="button" id="stage4" class="btn btn-dark">S4</button>
         </li>
         <li class="nav-item">
-            <button type="button" disabled id="stage5" class="btn btn-dark">Stage 5</button>
+            <button type="button" id="stage5" class="btn btn-dark">S5</button>
         </li>
         <li class="nav-item">
-            <button type="button"  id="fullScreen" class="btn btn-success">ToggleFull</button>
+            <button type="button" id="stage6" class="btn btn-dark">S6</button>
         </li>
         <li class="nav-item">
-            <a href="data/printedmap.pdf" download type="button" class="btn btn-success">Print Map</a>
+            <button type="button" id="stage7" class="btn btn-dark">S7</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage8" class="btn btn-dark">S8</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="fullScreen" class="btn btn-success"><i class="fas fa-expand"></i></button>
+        </li>
+        <li class="nav-item">
+            <a href="data/printedmap.pdf" download class="btn btn-success"><i class="fas fa-print"></i></a>
 
         </li>
     </ul>
-
 </div>
 <a-scene manager embedded arjs='sourceType: webcam;  debugUIEnabled: false' vr-mode-ui="enabled: false" >
     <a-assets>

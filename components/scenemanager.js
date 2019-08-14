@@ -1,24 +1,9 @@
 AFRAME.registerComponent('manager', {
     init: function () {
         let self = this;
-        this.Stageready = false;
+
         this.fire = document.querySelector('#fire1');
         this.scene = document.querySelector('a-scene');
-
-        this.fire.setAttribute('visible', 'false')
-        this.stage1Handler = this.stage1Handler.bind(this);
-        this.stage2Handler = this.stage2Handler.bind(this);
-        this.stage3Handler = this.stage3Handler.bind(this);
-        this.stage4Handler = this.stage4Handler.bind(this);
-        this.stage5Handler = this.stage5Handler.bind(this);
-
-        $("#stage1").click(self.stage1Handler);
-        $("#stage2").click(self.stage2Handler);
-        $("#stage3").click(self.stage3Handler);
-        $("#stage4").click(self.stage4Handler);
-        $("#stage5").click(self.stage5Handler);
-
-        // let timeOut =setTimeout(self.stage1Handler, 3000);
         $("#fullScreen").click(function () {
             if (!document.fullscreenElement
                 && !document.mozFullScreenElement
@@ -45,7 +30,34 @@ AFRAME.registerComponent('manager', {
                 }
             }
         });
+        this.fire.setAttribute('visible', 'false')
+        this.stage1Handler = this.stage1Handler.bind(this);
+        this.stage2Handler = this.stage2Handler.bind(this);
+        this.stage3Handler = this.stage3Handler.bind(this);
+        this.stage4Handler = this.stage4Handler.bind(this);
+        this.stage5Handler = this.stage5Handler.bind(this);
+        this.stage6Handler = this.stage6Handler.bind(this);
+        this.stage7Handler = this.stage7Handler.bind(this);
+        this.stage8Handler = this.stage8Handler.bind(this);
 
+        function audioReady(){
+            return $.when.apply($, $('audio').map(function(){
+                var ready = new $.Deferred();
+                $(this).one('canplay', ready.resolve);
+                return ready.promise();
+            }));
+        }
+        audioReady().then(function () {
+            $("#stage1").click(self.stage1Handler);
+            $("#stage2").click(self.stage2Handler);
+            $("#stage3").click(self.stage3Handler);
+            $("#stage4").click(self.stage4Handler);
+            $("#stage5").click(self.stage5Handler);
+            $("#stage6").click(self.stage5Handler);
+            $("#stage7").click(self.stage5Handler);
+            $("#stage8").click(self.stage5Handler);
+
+        });
     },
 
     stage1StartPosition: function () {
@@ -297,6 +309,14 @@ AFRAME.registerComponent('manager', {
         return el;
     },
     stage1Handler: function () {
+        $(".message").hide();
+        $("#message01").fadeIn(500);
+        $('.audio-play').each(function(){
+            this.pause(); // Stop playing
+            this.currentTime = 0; // Reset time
+        });
+        $("#audio1").trigger("play");
+
 
         let marker2 = document.querySelector('#pos2').object3D.position;
 
@@ -314,10 +334,6 @@ AFRAME.registerComponent('manager', {
         curve.appendChild(curvePoint2);
         this.scene.appendChild(curve);
         s1.setAttribute('alongpath', {curve: '#track1', dur: 3000, rotate: true, delay: 2000});
-        $("#battleInfo").html("8:30 AM May 12th 1865 Branson led his men off to attack a Confederate camp at Palmito Ranch");
-        let sound1 = document.querySelector('#sound1');
-        sound1.components.sound.playSound();
-
         s1.addEventListener('movingended', stage1Finish)
 
         function stage1Finish() {
@@ -377,9 +393,6 @@ AFRAME.registerComponent('manager', {
         track6.appendChild(track61);
         track6.appendChild(track62);
         this.scene.appendChild(track6);
-        $("#battleInfo").text(`After skirmishing along the way, the Federals attacked the camp and scattered the Confederates`)
-        let sound2 = document.querySelector('#sound2');
-        sound2.components.sound.playSound();
         t1.setAttribute('alongpath', {curve: '#track4', dur: 3000, rotate: true, delay: 2000});
         t2.setAttribute('alongpath', {curve: '#track5', dur: 3000, rotate: true, delay: 2000});
         t3.setAttribute('alongpath', {curve: '#track6', dur: 3000, rotate: true, delay: 2000});
@@ -431,9 +444,6 @@ AFRAME.registerComponent('manager', {
         track7.appendChild(curvePoint1);
         track7.appendChild(curvePoint2);
         this.scene.appendChild(track7);
-        $("#battleInfo").text(`After the small confrontation at Palmito Ranch, Branson and the Union troops retreated to the hill nearby to rest their troops and animals`)
-        let sound3 = document.querySelector('#sound3');
-        sound3.components.sound.playSound();
         s1.setAttribute('alongpath', {curve: '#track7', dur: 3000, rotate: true, delay: 2000});
         s1.addEventListener('movingended', stage3Finished)
         function stage3Finished() {
@@ -447,10 +457,6 @@ AFRAME.registerComponent('manager', {
             fire.object3D.position.copy(marker2.object3D.position);
             fire.setAttribute('visible', 'true');
 
-
-            $("#battleInfo").text(`The Union took Palmito Ranch, burning any supplies that they found abandoned at the camp, and capturing three prisoners`);
-            let burningcamp = document.querySelector('#burningcamp');
-            burningcamp.components.sound.playSound();
             setTimeout(self.stage4Handler,2000);
 
         }
@@ -507,9 +513,7 @@ AFRAME.registerComponent('manager', {
         track10.appendChild(track101);
         track10.appendChild(track102);
         this.scene.appendChild(track10);
-        $("#battleInfo").html("At 3pm, the Confederates came with reinforcements");
-        let sound4 = document.querySelector('#sound4');
-        sound4.components.sound.playSound();
+
         t1.setAttribute('alongpath', {curve: '#track8', dur: 3000, rotate: true, delay: 2000});
         t2.setAttribute('alongpath', {curve: '#track9', dur: 3000, rotate: true, delay: 2000});
         t3.setAttribute('alongpath', {curve: '#track10', dur: 3000, rotate: true, delay: 2000});
@@ -557,9 +561,6 @@ AFRAME.registerComponent('manager', {
         this.scene.appendChild(track11);
         s1.setAttribute('alongpath', {curve: '#track11', dur: 3000, rotate: true, delay: 2000});
         s1.addEventListener('movingended', stage5Finished)
-        $("#battleInfo").html("Federals retreated to White’s Ranch.");
-        let sound5 = document.querySelector('#sound5');
-        sound5.components.sound.playSound();
         function stage5Finished() {
             let s1old = document.querySelector('#s1');
             if(s1old) s1old.parentNode.removeChild(s1old);
@@ -567,6 +568,33 @@ AFRAME.registerComponent('manager', {
             let marker1 = document.querySelector('#pos1');
             marker1.appendChild(s1);
         }
+    },
+    stage6Handler:function(){
+        $(".message").hide();
+        $("#message06").fadeIn(500);
+        $('.audio-play').each(function(){
+            this.pause(); // Stop playing
+            this.currentTime = 0; // Reset time
+        });
+        $("#audio6").trigger("play");
+    },
+    stage7Handler:function(){
+        $(".message").hide();
+        $("#message07").fadeIn(500);
+        $('.audio-play').each(function(){
+            this.pause(); // Stop playing
+            this.currentTime = 0; // Reset time
+        });
+        $("#audio7").trigger("play");
+    },
+    stage8Handler:function(){
+        $(".message").hide();
+        $("#message08").fadeIn(500);
+        $('.audio-play').each(function(){
+            this.pause(); // Stop playing
+            this.currentTime = 0; // Reset time
+        });
+        $("#audio8").trigger("play");
     },
     tick: function (time, timeDelta) {
         let pos1 = document.querySelector('#pos1').object3D;
@@ -576,15 +604,21 @@ AFRAME.registerComponent('manager', {
         let pos5 = document.querySelector('#pos5').object3D;
         let pos6 = document.querySelector('#pos6').object3D;
         let flag1 = pos1.visible === true && pos2.visible === true;
-        let flag2 = pos2.visible === true && pos3.visible === true;
+        let flag2 = pos2.visible === true && pos4.visible === true&&pos5.visible === true && pos6.visible === true;
         let flag3 = pos2.visible === true;
-        let flag4 = pos1.visible === true && pos2.visible === true && pos3.visible === true && pos4.visible === true && pos5.visible === true && pos6.visible === true;
-        this.Stageready  = flag1;
+        let flag4 = pos1.visible === true && pos2.visible === true && pos4.visible === true && pos5.visible === true && pos6.visible === true;
+        let flag5 = pos2.visible === true && pos4.visible === true&&pos5.visible === true && pos6.visible === true;
+        let flag6 = pos2.visible === true && pos3.visible === true;
+        let flag7 = flag2;
+        let flag8 = pos3.visible === true && pos1.visible === true;
         $('#stage1').prop('disabled', !flag1);
         $('#stage2').prop('disabled', !flag2);
         $('#stage3').prop('disabled', !flag3);
         $('#stage4').prop('disabled', !flag4);
-        $('#stage5').prop('disabled', !flag1);
+        $('#stage5').prop('disabled', !flag5);
+        $('#stage6').prop('disabled', !flag6);
+        $('#stage7').prop('disabled', !flag7);
+        $('#stage8').prop('disabled', !flag8);
 
 
     }
