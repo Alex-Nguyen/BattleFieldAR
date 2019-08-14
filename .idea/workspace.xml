@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5917ce6-b5b1-4773-8cbb-f64a0de5ac0d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/components/scenemanager.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/scenemanager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -15,14 +16,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="146" column="3" selection-start-line="146" selection-start-column="3" selection-end-line="146" selection-end-column="3" />
+            <state relative-caret-position="202">
+              <caret line="113" column="9" lean-forward="true" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#body#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#!!top" expanded="true" />
@@ -67,23 +67,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5432">
-              <caret line="596" column="37" selection-start-line="596" selection-start-column="37" selection-end-line="596" selection-end-column="37" />
+            <state relative-caret-position="-506">
+              <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
               <folding>
                 <element signature="e#242#1570#0" />
-                <element signature="e#2306#4120#0" />
-                <element signature="e#4159#5838#0" />
-                <element signature="e#5877#7737#0" />
-                <element signature="e#7776#9489#0" />
-                <element signature="e#9525#11706#0" />
                 <element signature="e#11744#11983#0" />
                 <element signature="e#12024#13047#0" />
-                <element signature="e#17461#18323#0" />
+                <element signature="e#13080#14552#0" />
+                <element signature="e#14585#18329#0" />
                 <element signature="e#19919#20764#0" />
-                <element signature="e#23903#24730#0" />
                 <element signature="e#26198#27189#0" />
               </folding>
             </state>
@@ -132,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/aligntext.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="79" lean-forward="true" selection-start-line="6" selection-end-line="7" />
+            <state relative-caret-position="424">
+              <caret line="112" column="38" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -143,10 +138,7 @@
                 <element signature="n#style#0;n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#7;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#5706#5994#0" />
-                <element signature="e#6036#6324#0" />
-                <element signature="e#6366#6654#0" />
-                <element signature="e#6696#6984#0" />
+                <element signature="e#5331#5355#0" />
               </folding>
             </state>
           </provider>
@@ -211,8 +203,8 @@
         <option value="$PROJECT_DIR$/Test.html" />
         <option value="$PROJECT_DIR$/home.html" />
         <option value="$PROJECT_DIR$/aligntext.html" />
-        <option value="$PROJECT_DIR$/components/scenemanager.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/components/scenemanager.js" />
       </list>
     </option>
   </component>
@@ -299,12 +291,12 @@
       <workItem from="1565231508062" duration="18699000" />
       <workItem from="1565295778067" duration="16351000" />
       <workItem from="1565375968208" duration="12370000" />
-      <workItem from="1565732956527" duration="18600000" />
+      <workItem from="1565732956527" duration="21971000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123954000" />
+    <option name="totallyTimeSpent" value="127325000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -424,31 +416,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5432">
-          <caret line="596" column="37" selection-start-line="596" selection-start-column="37" selection-end-line="596" selection-end-column="37" />
-          <folding>
-            <element signature="e#242#1570#0" />
-            <element signature="e#2306#4120#0" />
-            <element signature="e#4159#5838#0" />
-            <element signature="e#5877#7737#0" />
-            <element signature="e#7776#9489#0" />
-            <element signature="e#9525#11706#0" />
-            <element signature="e#11744#11983#0" />
-            <element signature="e#12024#13047#0" />
-            <element signature="e#17461#18323#0" />
-            <element signature="e#19919#20764#0" />
-            <element signature="e#23903#24730#0" />
-            <element signature="e#26198#27189#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/aligntext.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="79" lean-forward="true" selection-start-line="6" selection-end-line="7" />
+        <state relative-caret-position="424">
+          <caret line="112" column="38" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -458,21 +429,17 @@
             <element signature="n#style#0;n#div#5;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#7;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#5706#5994#0" />
-            <element signature="e#6036#6324#0" />
-            <element signature="e#6366#6654#0" />
-            <element signature="e#6696#6984#0" />
+            <element signature="e#5331#5355#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="146" column="3" selection-start-line="146" selection-start-column="3" selection-end-line="146" selection-end-column="3" />
+        <state relative-caret-position="202">
+          <caret line="113" column="9" lean-forward="true" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#body#0;n#!!top" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#1;n#body#0;n#!!top" expanded="true" />
@@ -484,6 +451,22 @@
             <element signature="n#a-assets#0;n#a-scene#0;n#body#0;n#!!top" />
             <element signature="n#a-entity#0;n#a-scene#0;n#body#0;n#!!top" />
             <element signature="n#a-marker#1;n#a-scene#0;n#body#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/scenemanager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-506">
+          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+          <folding>
+            <element signature="e#242#1570#0" />
+            <element signature="e#11744#11983#0" />
+            <element signature="e#12024#13047#0" />
+            <element signature="e#13080#14552#0" />
+            <element signature="e#14585#18329#0" />
+            <element signature="e#19919#20764#0" />
+            <element signature="e#26198#27189#0" />
           </folding>
         </state>
       </provider>
