@@ -48,7 +48,7 @@ AFRAME.registerComponent('manager', {
         $("#stage7").click(self.stage7Handler);
         $("#stage8").click(self.stage8Handler);
 
-        
+
     },
 
     stage1StartPosition: function () {
@@ -284,10 +284,11 @@ AFRAME.registerComponent('manager', {
         $("#stage1").removeClass('btn-dark').addClass('btn-danger');
         $(".message").hide();
         $("#message01").fadeIn(500);
-        let sounds = document.querySelector('[sound]');
-        sounds.components.sound.stopSound();
-        let sound1 = document.querySelector("#sound1");
-        sound1.components.sound.playSound();
+        $('.audio-play').each(function(){
+            this.pause(); // Stop playing
+            this.currentTime = 0; // Reset time
+        });
+        $("#audio1").trigger("play");
 
         let marker2 = document.querySelector('#pos2').object3D.position;
 
