@@ -257,8 +257,9 @@ AFRAME.registerComponent('manager', {
     },
     create3Dmodel: function (id, type) {
         let el = document.createElement('a-entity');
-        el.setAttribute('gltf-model', '#man');
+        el.setAttribute('gltf-model', '#unionTroop');
         el.setAttribute('id', id);
+        el.setAttribute('animation-mixer', "clip:Idle");
         if (type === 'union') {
             let unionFlag = document.createElement('a-plane');
             unionFlag.setAttribute('src', '#unionFlag');
@@ -295,7 +296,7 @@ AFRAME.registerComponent('manager', {
         this.stage1StartPosition();
         var self = this;
         let s1 = document.querySelector('#s1');
-        s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
+        s1.setAttribute('animation-mixer', {clip: 'Walking'})
         let curve = document.createElement('a-curve');
         curve.setAttribute('id', 'track1');
         let curvePoint1 = document.createElement('a-curve-point');
@@ -338,9 +339,9 @@ AFRAME.registerComponent('manager', {
         let marker5 = document.querySelector('#pos5').object3D.position;
         let marker6 = document.querySelector('#pos6').object3D.position;
         // Set animations
-        t1.setAttribute('animation-mixer', {clip: 'mixamo.com'});
-        t2.setAttribute('animation-mixer', {clip: 'mixamo.com'});
-        t3.setAttribute('animation-mixer', {clip: 'mixamo.com'});
+        t1.setAttribute('animation-mixer', {clip: 'Running'});
+        t2.setAttribute('animation-mixer', {clip: 'Running'});
+        t3.setAttribute('animation-mixer', {clip: 'Running'});
 
         // Create track4,5,6
         let track4 = document.createElement('a-curve');
@@ -416,7 +417,7 @@ AFRAME.registerComponent('manager', {
         let self = this;
         let marker3 = document.querySelector('#pos3').object3D.position;
         let s1 = document.querySelector('#s1');
-        s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
+        s1.setAttribute('animation-mixer', {clip: 'Walking'})
         let track7 = document.createElement('a-curve');
         track7.setAttribute('id', 'track7');
         let curvePoint1 = document.createElement('a-curve-point');
@@ -466,9 +467,9 @@ AFRAME.registerComponent('manager', {
         if(tt1) tt1.parentNode.removeChild(tt1);
         if(tt2) tt2.parentNode.removeChild(tt2);
         if(tt3) tt3.parentNode.removeChild(tt3);
-        t1.setAttribute('animation-mixer', {clip: 'mixamo.com'});
-        t2.setAttribute('animation-mixer', {clip: 'mixamo.com'});
-        t3.setAttribute('animation-mixer', {clip: 'mixamo.com'});
+        t1.setAttribute('animation-mixer', {clip: 'Walking'});
+        t2.setAttribute('animation-mixer', {clip: 'Walking'});
+        t3.setAttribute('animation-mixer', {clip: 'Walking'});
 
         let track8 = document.createElement('a-curve');
         track8.setAttribute('id', 'track8');
@@ -530,7 +531,7 @@ AFRAME.registerComponent('manager', {
             _self.stage5StartPosition();
             let marker1 = document.querySelector('#pos1').object3D.position;
             let s1 = document.querySelector('#s1');
-            s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
+            s1.setAttribute('animation-mixer', {clip: 'Running'})
             let track11 = document.createElement('a-curve');
             track11.setAttribute('id', 'track11');
             let curvePoint111 = document.createElement('a-curve-point');
@@ -570,7 +571,7 @@ AFRAME.registerComponent('manager', {
         this.stage1StartPosition();
         let _self = this;
         let s1 = document.querySelector('#s1');
-        s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
+        s1.setAttribute('animation-mixer', {clip: 'Walking'})
         let curve = document.createElement('a-curve');
         curve.setAttribute('id', 'track1');
         let curvePoint1 = document.createElement('a-curve-point');
@@ -600,9 +601,9 @@ AFRAME.registerComponent('manager', {
             let marker5 = document.querySelector('#pos5').object3D.position;
             let marker6 = document.querySelector('#pos6').object3D.position;
             // Set animations
-            t1.setAttribute('animation-mixer', {clip: 'mixamo.com'});
-            t2.setAttribute('animation-mixer', {clip: 'mixamo.com'});
-            t3.setAttribute('animation-mixer', {clip: 'mixamo.com'});
+            t1.setAttribute('animation-mixer', {clip: 'Running'});
+            t2.setAttribute('animation-mixer', {clip: 'Running'});
+            t3.setAttribute('animation-mixer', {clip: 'Running'});
 
             // Create track4,5,6
             let track4 = document.createElement('a-curve');
@@ -683,7 +684,7 @@ AFRAME.registerComponent('manager', {
         let _self = this;
         let marker3 = document.querySelector('#pos3').object3D.position;
         let s1 = document.querySelector('#s1');
-        s1.setAttribute('animation-mixer', {clip: 'mixamo.com'});
+        s1.setAttribute('animation-mixer', {clip: 'Walking'});
         let t7 = document.querySelector('#track7');
         if(t7)t7.parentNode.removeChild(t7);
 
@@ -702,6 +703,7 @@ AFRAME.registerComponent('manager', {
             let s1old = document.querySelector('#s1');
             if(s1old) s1old.parentNode.removeChild(s1old);
             let s1 = _self.create3Dmodel('s1', 'union');
+            s1.setAttribute("animation-mixer","clip:Rest")
             let marker3 = document.querySelector('#pos3');
             marker3.appendChild(s1);
 
@@ -732,9 +734,9 @@ AFRAME.registerComponent('manager', {
         if(tt1) tt1.parentNode.removeChild(tt1);
         if(tt2) tt2.parentNode.removeChild(tt2);
         if(tt3) tt3.parentNode.removeChild(tt3);
-        t1.setAttribute('animation-mixer', {clip: 'mixamo.com'});
-        t2.setAttribute('animation-mixer', {clip: 'mixamo.com'});
-        t3.setAttribute('animation-mixer', {clip: 'mixamo.com'});
+        t1.setAttribute('animation-mixer', {clip: 'Walking'});
+        t2.setAttribute('animation-mixer', {clip: 'Walking'});
+        t3.setAttribute('animation-mixer', {clip: 'Walking'});
 
         let track8 = document.createElement('a-curve');
         track8.setAttribute('id', 'track8');
@@ -814,7 +816,7 @@ AFRAME.registerComponent('manager', {
         _self.stage5StartPosition();
         let marker1 = document.querySelector('#pos1').object3D.position;
         let s1 = document.querySelector('#s1');
-        s1.setAttribute('animation-mixer', {clip: 'mixamo.com'})
+        s1.setAttribute('animation-mixer', {clip: 'Running'})
         let track11 = document.createElement('a-curve');
         track11.setAttribute('id', 'track11');
         let curvePoint111 = document.createElement('a-curve-point');

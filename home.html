@@ -94,7 +94,7 @@
     <a-assets>
         <img id="unionFlag" src="data/unionFlags.jpg"/>
         <img id="confederate" src="data/confederate.jpg"/>
-        <a-asset-item id="man" src="data/Walking.glb"></a-asset-item>
+        <a-asset-item id="unionTroop" src="data/Union.glb"></a-asset-item>
         <audio id="audio1" src="data/Voice/message01.mp3" class="audio-play"  preload="auto">
         </audio>
         <audio id="audio2" src="data/Voice/message02.mp3" class="audio-play"  preload="auto">
@@ -120,12 +120,12 @@
               position="0 0 -10">
     </a-entity>
     <a-marker id="pos1" type='pattern' url='data/pattern-pos1.patt'>
-        <a-entity gltf-model="#man" id="s1"><a-plane src="#unionFlag" position="0 2 0" height="0.8" width="1.2" look-at="[camera]"></a-plane></a-entity>
+        <a-entity gltf-model="#unionTroop" material="color:blue" animation-mixer="clip:Idle" id="s1"><a-plane src="#unionFlag" position="0 2 0" height="0.8" width="1.2" look-at="[camera]"></a-plane></a-entity>
     </a-marker>
     <a-marker id="pos2" type='pattern' url='data/pattern-pos2.patt'>
-        <a-entity gltf-model="#man" id="t1"><a-plane src="#confederate" position="0 2 0" height="0.8" width="1.2" look-at="[camera]"></a-plane></a-entity>
-        <a-entity gltf-model="#man" id="t2"><a-plane src="#confederate" position="0 2 0" height="0.8" width="1.2" look-at="[camera]"></a-plane></a-entity>
-        <a-entity gltf-model="#man" id="t3"><a-plane src="#confederate" position="0 2 0" height="0.8" width="1.2" look-at="[camera]"></a-plane></a-entity>
+        <a-entity gltf-model="#unionTroop" id="t1"><a-plane src="#confederate" position="0 2 0" height="0.8" width="1.2" look-at="[camera]"></a-plane></a-entity>
+        <a-entity gltf-model="#unionTroop" id="t2"><a-plane src="#confederate" position="0 2 0" height="0.8" width="1.2" look-at="[camera]"></a-plane></a-entity>
+        <a-entity gltf-model="#unionTroop" id="t3"><a-plane src="#confederate" position="0 2 0" height="0.8" width="1.2" look-at="[camera]"></a-plane></a-entity>
 
     </a-marker>
     <a-marker id="pos3" type='pattern' url='data/pattern-pos3.patt'>
